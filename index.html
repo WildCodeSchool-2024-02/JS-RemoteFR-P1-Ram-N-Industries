@@ -1,115 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-
-        <button  onclick="togglePopupRules()">Régles</button>
-        <div id="popup-overlay-rules">
-            <div class="popup-content-rules">
-                <p>Règle:</p>
-                <p>Il faut collecter un maximum de Benoîts ! Pour cela il est possible d'utiliser des bonus qui sont débloquable en fonction de votre nombres de Benoîts actuel </p>
-                <a href="javascript:void(0)" onclick="togglePopupRules()" class="popup-rules-exit">Fermer</a>
-            </div>
+      <button onclick="togglePopupRules()">Régles</button>
+      <div id="popup-overlay-rules">
+        <div class="popup-content-rules">
+          <p>Règle:</p>
+          <p>
+            Il faut collecter un maximum de Benoîts ! Pour cela il est possible
+            d'utiliser des bonus qui sont débloquable en fonction de votre
+            nombres de Benoîts actuel
+          </p>
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopupRules()"
+            class="popup-rules-exit"
+            >Fermer</a
+          >
         </div>
+      </div>
 
-        <button  onclick="togglePopupSucces()">Succès</button>
-        <div id="popup-overlay-succes">
-            <div class="popup-content-succes">
-                <p>Succès:</p>
-                <p>Waouw tu possèdes tant de Benoît tu es un GOAT</p>
-                <a href="javascript:void(0)" onclick="togglePopupSucces()" class="popup-succes-exit">Fermer</a>
-            </div>
+      <button onclick="togglePopupSucces()">Succès</button>
+      <div id="popup-overlay-succes">
+        <div class="popup-content-succes">
+          <p>Succès:</p>
+          <p>Waouw tu possèdes tant de Benoît tu es un GOAT</p>
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopupSucces()"
+            class="popup-succes-exit"
+            >Fermer</a
+          >
         </div>
+      </div>
 
-        <img src="/images/BenWild_Clicker_transparent.png" alt="logo" width="150px" height="200px" class="logoW">
+      <img
+        src="images/BenWild_Clicker_transparent.png"
+        alt="logo"
+        width="150px"
+        height="200px"
+        class="logoW"
+      />
 
-        <button  onclick="togglePopupTeam()">L'équipe</button>
-        <div id="popup-overlay-team">
-            <div class="popup-content-team">
-                <p>Team</p>
-                <p>L'équipe est composé de : Rachel , ADJ , Max et NicoJ</p>
-                <a href="javascript:void(0)" onclick="togglePopupTeam()" class="popup-rules-team">Fermer</a>
-            </div>
+      <button onclick="togglePopupTeam()">L'équipe</button>
+      <div id="popup-overlay-team">
+        <div class="popup-content-team">
+          <p>Team</p>
+          <p>L'équipe est composé de : Rachel , ADJ , Max et NicoJ</p>
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopupTeam()"
+            class="popup-rules-team"
+            >Fermer</a
+          >
         </div>
+      </div>
 
-
-        <button onclick="togglePopupOption()">Options</button>
-        <div id="popup-overlay-option">
-             <div class="popup-content-option">
-            <p>Options </p>
-            <p>VOLUME: </p>
-            <p>**** BARRE DE VOLUME ****</p>
-            <a href="javascript:void(0)" onclick="togglePopupOption()" class ="popup-option-exit">Fermer</a>
+      <button onclick="togglePopupOption()">Options</button>
+      <div id="popup-overlay-option">
+        <div class="popup-content-option">
+          <p>Options</p>
+          <p>VOLUME:</p>
+          <p>**** BARRE DE VOLUME ****</p>
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopupOption()"
+            class="popup-option-exit"
+            >Fermer</a
+          >
         </div>
-        </div>
-
+      </div>
     </header>
     <main>
-        <section class="score">
-            <h1>Nombre de Benoît</h1>
+      <section class="score">
+        <h1>Nombre de Benoît</h1>
 
-            <ul>
-                <li>Score</li>
-                <li><img src="/JS-RemoteFR-P1-Ram-N-Industries/images/Benoit.png" alt=""></li>
-            </ul>
+        <ul>
+          <li id="counter">0</li>
+          <li><img class="clicker" id="clicking" src="images/Benoît 1.png" alt="Image du Goat" /></li>
+        </ul>
+</main>
+<footer>
+        <h2>Bonus</h2>
+      </section>
+      <section class="bonus">
+        <a id="bonusAntho" class="container" href="#Bonus"
+          ><img src="images/Antho.png" alt="bonus1" class="Antho" />
+          <div class="details">
+            <h3><span id="nombreAntho">0</span> Antho</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Cout : <span id="costAntho">15</span> Benoît</h4>
+          </div>
+        </a>
+        <a id="bonusAyoub" class="container" href="#Bonus"
+          ><img src="images/Ayoub.png" alt="bonus2" />
+          <div class="details">
+            <h3>Ayoub: <span id="nombreAyoub">0</span></h3>
+            <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Cout : <span id="costAyoub">10000</span> Benoît</h4>
+          </div>
+        </a>
+        <a class="container" href="#Bonus"
+          ><img src="images/IMG-2002.png" alt="bonus3" />
+          <div class="details">
+            <h3>Vincent</h3>
+            <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Coût du Bonus</h4>
+          </div>
+        </a>
+        <a class="container" href="#Bonus"
+          ><img src="images/Samuel.png" alt="bonus4" />
+          <div class="details">
+            <h3>Samuel</h3>
+            <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Coût du Bonus</h4>
+          </div>
+        </a>
+        <a class="container" href="#Bonus"
+          ><img src="images/Yavuz.png" alt="bonus5" />
+          <div class="details">
+            <h3>Yavuz</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Coût du Bonus</h4>
+          </div>
+        </a>
+        <a class="container" href="#Bonus"
+          ><img src="images/Christopher.png"bonus6" />
+          <div class="details">
+            <h3>Christopher</h3>
+            <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h4>Coût du Bonus</h4>
+          </div>
+        </a>
+      </section>
+      </footer>
 
-            <h2>Bonus</h2>
-        </section>
-        <section class="bonus">
-            <a class="container" href="#Bonus"><img src="images/Antho.png" alt="bonus1" class="Antho" />
-                <div class="details">
-                    <h3>Antho</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-            <a class="container" href="#Bonus"><img src="images/Ayoub.png" alt="bonus2" />
-                <div class="details">
-                    <h3>Ayoub</h3>
-                    <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-            <a class="container" href="#Bonus"><img src="images/IMG-2002.png" alt="bonus3" />
-                <div class="details">
-                    <h3>???</h3>
-                    <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-            <a class="container" href="#Bonus"><img src="images/Samuel.png" alt="bonus4" />
-                <div class="details">
-                    <h3>Samuel</h3>
-                    <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-            <a class="container" href="#Bonus"><img src="images/Yavuz.png" alt="bonus5" />
-                <div class="details">
-                    <h3>Yavuz</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-            <a class="container" href="#Bonus"><img src="images/Christopher.png"bonus6" />
-                <div class="details">
-                    <h3>Christopher</h3>
-                    <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <h4>Coût du Bonus</h4>
-                </div>
-            </a>
-        </section>
-
-<script src="script.js"></script>
-    </main>
-</body>
-
+      <script src="script.js"></script>
+  </body>
 </html>
