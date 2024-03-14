@@ -10,11 +10,47 @@
 
 <body>
     <header>
-        <button class="bouton"><a href="">Options</a></button>
-        <button class="bouton"><a href="">Régles</a></button>
+
+        <button  onclick="togglePopupRules()">Régles</button>
+        <div id="popup-overlay-rules">
+            <div class="popup-content-rules">
+                <p>Règle:</p>
+                <p>Il faut collecter un maximum de Benoîts ! Pour cela il est possible d'utiliser des bonus qui sont débloquable en fonction de votre nombres de Benoîts actuel </p>
+                <a href="javascript:void(0)" onclick="togglePopupRules()" class="popup-rules-exit">Fermer</a>
+            </div>
+        </div>
+
+        <button  onclick="togglePopupSucces()">Succès</button>
+        <div id="popup-overlay-succes">
+            <div class="popup-content-succes">
+                <p>Succès:</p>
+                <p>Waouw tu possèdes tant de Benoît tu es un GOAT</p>
+                <a href="javascript:void(0)" onclick="togglePopupSucces()" class="popup-succes-exit">Fermer</a>
+            </div>
+        </div>
+
         <img src="/images/BenWild_Clicker_transparent.png" alt="logo" width="150px" height="200px" class="logoW">
-        <button class="bouton"><a href="">Succés</a></button>
-        <button class=" bouton"><a href="">Equipe</a></button>
+
+        <button  onclick="togglePopupTeam()">L'équipe</button>
+        <div id="popup-overlay-team">
+            <div class="popup-content-team">
+                <p>Team</p>
+                <p>L'équipe est composé de : Rachel , ADJ , Max et NicoJ</p>
+                <a href="javascript:void(0)" onclick="togglePopupTeam()" class="popup-rules-team">Fermer</a>
+            </div>
+        </div>
+
+
+        <button onclick="togglePopupOption()">Options</button>
+        <div id="popup-overlay-option">
+             <div class="popup-content-option">
+            <p>Options </p>
+            <p>VOLUME: </p>
+            <p>**** BARRE DE VOLUME ****</p>
+            <a href="javascript:void(0)" onclick="togglePopupOption()" class ="popup-option-exit">Fermer</a>
+        </div>
+        </div>
+
     </header>
     <main>
         <section class="score">
@@ -22,57 +58,57 @@
 
             <ul>
                 <li>Score</li>
-                <li><img src="Benoît 1.png" alt=""></li>
+                <li><img src="/JS-RemoteFR-P1-Ram-N-Industries/images/Benoit.png" alt=""></li>
             </ul>
 
             <h2>Bonus</h2>
         </section>
         <section class="bonus">
-            <a class="container" href="#Bonus"><img src="/images/Antho.png" alt="bonus1" class="Antho" />
+            <a class="container" href="#Bonus"><img src="images/Antho.png" alt="bonus1" class="Antho" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>Antho</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
-            <a class="container" href="#Bonus"><img src="/images/Ayoub.png" alt="bonus2" />
+            <a class="container" href="#Bonus"><img src="images/Ayoub.png" alt="bonus2" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>Ayoub</h3>
                     <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
-            <a class="container" href="#Bonus"><img src="/images/IMG-2002.png" alt="bonus3" />
+            <a class="container" href="#Bonus"><img src="images/IMG-2002.png" alt="bonus3" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>???</h3>
                     <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
-            <a class="container" href="#Bonus"><img src="/images/Samuel.png" alt="bonus4" />
+            <a class="container" href="#Bonus"><img src="images/Samuel.png" alt="bonus4" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>Samuel</h3>
                     <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
-            <a class="container" href="#Bonus"><img src="/images/Yavuz.png" alt="bonus5" />
+            <a class="container" href="#Bonus"><img src="images/Yavuz.png" alt="bonus5" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>Yavuz</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
-            <a class="container" href="#Bonus"><img src="/images/GoatNoit.png" alt="bonus6" />
+            <a class="container" href="#Bonus"><img src="images/Christopher.png"bonus6" />
                 <div class="details">
-                    <h3>Nom du Bonus</h3>
+                    <h3>Christopher</h3>
                     <p>CLorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     <h4>Coût du Bonus</h4>
                 </div>
             </a>
         </section>
 
-
+<script src="script.js"></script>
     </main>
 </body>
 

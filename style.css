@@ -21,7 +21,7 @@ header {
 }
 
 
-.bouton {
+button {
     background-color: #f3156c;
     display: inline-block;
     margin: 0;
@@ -128,4 +128,76 @@ section>a {
 .container>img {
     justify-self: center;
     align-self: center;
+}
+
+/* BUTTON POP UP */ 
+
+#popup-overlay-option,
+#popup-overlay-rules,
+#popup-overlay-succes,
+#popup-overlay-team {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 98;
+    display: none;
+    animation: popupanim 1.5s;
+
+}
+
+#popup-overlay-option.open,
+#popup-overlay-rules.open,
+#popup-overlay-succes.open,
+#popup-overlay-team.open {
+    display: block;
+}
+
+/* INTO THE POPUP */
+
+.popup-content-option,
+.popup-content-rules,
+.popup-content-succes,
+.popup-content-team {
+        max-width: 600px;
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        border-radius: 30px;
+        transition: top;
+}
+
+/* BUTTON EXIT */
+
+.popup-option-exit,
+.popup-rules-exit,
+.popup-succes-exit,
+.popup-team-exit {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* ANIMATION BUTTON */
+
+@keyframes popupanim {
+    from {
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
 }
