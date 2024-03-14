@@ -1,2 +1,131 @@
 /* Body et header */
 
+body {
+    background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 0.5rem;
+    height: 4rem;
+}
+
+
+.bouton {
+    background-color: #f3156c;
+    display: inline-block;
+    margin: 0;
+    border: 4px;
+    width: 150px;
+    height: 3em;
+    border-radius: 1em;
+    font-size: larger;
+    color: white;
+    transition: all 0.5;
+    cursor: pointer;
+}
+
+img.logoW {
+    margin-top: -5rem;
+    border-radius: 8em;
+    height: 150;
+    padding-block: none;
+    cursor: pointer;
+    align-items: flex-start;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+section.score {
+    display: flex;
+    flex-direction: column;
+
+}
+
+li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1,
+h2 {
+    padding-left: 3rem;
+}
+
+
+li>img {
+    background-image: linear-gradient(white, #f3156c 80%);
+    border-radius: 8em;
+
+}
+
+
+
+section>a>img {
+    width: 80px;
+    height: auto;
+    border-radius: 2em;
+    background-image: #1f1f1f;
+    margin-bottom: 1.5rem;
+
+}
+
+.Antho {
+    height: 90px;
+    width: auto;
+}
+
+section>a {
+
+    color: white;
+    text-decoration: none;
+    background-color: #4e515bb8;
+    border-radius: 30px;
+    display: grid;
+    height: 8rem;
+    width: 25rem;
+
+}
+
+
+
+.bonus {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    align-self: center;
+    margin-left: 5rem;
+
+    margin-right: 5rem;
+}
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    font-size: smaller;
+
+}
+
+.container>img {
+    justify-self: center;
+    align-self: center;
+}
