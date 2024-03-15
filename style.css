@@ -52,21 +52,25 @@ a {
   display: flex;
   flex-direction: column;
 }
+.score > ul > #counter {
+  margin-right: 1.5rem;
+}
 
 li {
   list-style-type: none;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 h1,
 h2 {
-  padding-left: 3rem;
+  align-self: center;
 }
 
 li > img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
+  margin-right: 2rem;
 }
 
 li > img:active {
@@ -103,6 +107,8 @@ section > a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  column-gap: 10rem;
+
   align-self: center;
   margin-left: 5rem;
 
