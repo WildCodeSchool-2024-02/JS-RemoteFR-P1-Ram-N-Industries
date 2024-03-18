@@ -25,11 +25,12 @@ const costAyoub = document.querySelector("#costAyoub");
 const nombreAntho = document.querySelector("#nombreAntho");
 const nombreAyoub = document.querySelector("#nombreAyoub");
 
-let score = 1;
+let score = 0;
 let bonusAnthoCost = 15;
 let bonusAyoubCost = 100;
 let antho = 1;
 let ayoub = 1;
+let ayoubCheck = false;
 
 const updateCounterClass = () => {
   if (score < bonusAnthoCost) {
@@ -48,37 +49,16 @@ const updateCounterClass = () => {
     costAyoub.classList.add("available");
   }
 };
-
 const basicClick = () => {
-  counter.innerHTML = score++;
+  score++;
+  counter.innerHTML = score;
   updateCounterClass();
-};
-
-const bonus1 = () => {
-  score = score + antho * 2;
-  counter.innerHTML = score++;
-  updateCounterClass();
-};
-
-const bonus2 = () => {
-  setInterval(() => {
-    score += ayoub;
-  }, 1000);
-  updateCounterClass();
-};
-
-const increment = () => {
-  if (antho <= 1) {
-    basicClick();
-  } else if (antho > 1) {
-    bonus1();
-  }
-  if (ayoub > 1) {
-    bonus2();
+  if (antho > 1) {
+    score += antho * 2;
   }
 };
 
-clicking.addEventListener("click", increment);
+clicking.addEventListener("click", basicClick);
 
 const bonusAnthoPurchase = () => {
   if (score >= bonusAnthoCost) {
@@ -100,6 +80,13 @@ const bonusAyoubPurchase = () => {
     costAyoub.innerHTML = bonusAyoubCost;
     nombreAyoub.innerHTML = ayoub++;
     updateCounterClass();
+    if (ayoubCheck !== true) {
+      ayoubCheck = true;
+      setInterval(() => {
+        score += ayoub - 1;
+        counter.innerHTML = score;
+      }, 1000);
+    }
   }
 };
 const bonusAntho = document.querySelector("#bonusAntho");
@@ -107,8 +94,11 @@ const bonusAyoub = document.querySelector("#bonusAyoub");
 bonusAntho.addEventListener("click", bonusAnthoPurchase);
 bonusAyoub.addEventListener("click", bonusAyoubPurchase);
 
+/* Drag prevent */
 const noDrag = document.querySelector("body");
 
 noDrag.addEventListener("dragstart", (event) => {
   event.preventDefault();
 });
+
+

@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
 /* Body et header */
 
 body {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Oxanium","Montserrat", sans-serif;
   color: white;
   text-align: center;
   display: flex;
@@ -32,6 +34,7 @@ button {
   color: white;
   transition: all 0.5;
   cursor: pointer;
+  font-family: "Oxanium";
 }
 
 img.logoW {
@@ -52,21 +55,25 @@ a {
   display: flex;
   flex-direction: column;
 }
+.score > ul > #counter {
+  margin-right: 1.5rem;
+}
 
 li {
   list-style-type: none;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 h1,
 h2 {
-  padding-left: 3rem;
+  align-self: center;
 }
 
 li > img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
+  margin-right: 2rem;
 }
 
 li > img:active {
@@ -103,6 +110,8 @@ section > a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  column-gap: 10rem;
+
   align-self: center;
   margin-left: 5rem;
 
@@ -119,6 +128,19 @@ section > a {
 .container > img {
   justify-self: center;
   align-self: center;
+}
+.details {
+  padding-right: 0.;
+}
+.details > p {
+ font-size: 0.7rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 2rem;
 }
 
 /* BUTTON POP UP */
@@ -144,25 +166,95 @@ section > a {
   display: block;
 }
 
-/* INTO THE POPUP */
 
-.popup-content-option,
-.popup-content-rules,
-.popup-content-succes,
-.popup-content-team {
-  max-width: 600px;
+/* INTO THE POPUPS */
+
+/* POP UP REGLE */
+.popup-content-rules {
+  max-width: 1200px;
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
-  background-color: black;
   color: white;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 40px;
   border-radius: 30px;
   transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+/* POP UP SUCCES */
+.popup-content-succes {
+  max-width: 1300px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-succes > .badges {
+  font-size: 30px;
+}
+
+.popup-content-succes > .badges > p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: flex;
+}
+
+/* POP UP L'EQUIPE */
+.popup-content-team {
+  max-width: 800px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-team > .pictures > img {
+ border-radius: 30%;
+ width: 150px;
+ height: 150px;
+}
+
+/* POP UP OPTION */
+.popup-content-option {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
 /* BUTTON EXIT */
@@ -178,7 +270,7 @@ section > a {
   text-decoration: none;
   color: black;
   padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 /* ANIMATION BUTTON */
@@ -190,13 +282,6 @@ section > a {
   to {
     transform: scale(1);
   }
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: 2rem;
 }
 
 /* CLASS CHANGES */
