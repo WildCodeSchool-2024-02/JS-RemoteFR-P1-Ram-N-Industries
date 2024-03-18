@@ -130,6 +130,13 @@ section > a {
  font-size: 0.7rem;
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 2rem;
+}
+
 /* BUTTON POP UP */
 
 #popup-overlay-option,
@@ -156,9 +163,7 @@ section > a {
 
 /* INTO THE POPUP */
 
-.popup-content-option,
-.popup-content-rules,
-.popup-content-succes {
+.popup-content-option {
   max-width: 600px;
   width: 100%;
   padding: 30px;
@@ -174,7 +179,53 @@ section > a {
   opacity: 95%;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
+/* POP UP REGLE */
+.popup-content-rules {
+  max-width: 1200px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
 
+/* POP UP SUCCES */
+.popup-content-succes {
+  max-width: 1300px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-succes > .badges {
+  font-size: 30px;
+}
+
+.popup-content-succes > .badges > p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: flex;
+}
+
+/* POP UP L'EQUIPE */
 .popup-content-team {
   max-width: 800px;
   width: 100%;
@@ -192,12 +243,28 @@ section > a {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-
-
 .popup-content-team > .pictures > img {
  border-radius: 30%;
  width: 150px;
  height: 150px;
+}
+
+/* POP UP OPTION */
+.popup-content-option {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
 /* BUTTON EXIT */
@@ -213,7 +280,7 @@ section > a {
   text-decoration: none;
   color: black;
   padding: 5px 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 /* ANIMATION BUTTON */
@@ -225,13 +292,6 @@ section > a {
   to {
     transform: scale(1);
   }
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: 2rem;
 }
 
 /* CLASS CHANGES */

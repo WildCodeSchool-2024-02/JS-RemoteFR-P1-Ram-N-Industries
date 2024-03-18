@@ -5,10 +5,11 @@
     <link rel="icon" sizes="16x16" href="images/favicon.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BenWîld Clicker</title>
+    <title>𝓑enWîld 𝓒licker</title>
   </head>
 
   <body>
+    <audio id ="song"><source src="images/musicB.mp3"></audio>
     <header>
       <button onclick="togglePopupRules()">Règle</button>
       <div id="popup-overlay-rules">
@@ -19,11 +20,17 @@
             d'utiliser des bonus qui sont débloquable en fonction de votre
             nombres de Benoîts actuel
           </p>
+          <p>Obtient des succès afin de montrer fièrement ton niveau :</p>
+          <img src="images/pizza.png" alt ="Badge pizza" height="120px" width="120px">
+          <img src="images/drapeau reunion.png" alt="Badge ile de la Reunion" height="120px" width="120px">
+          <img src="images/poulpe.png" alt="Badge poulpe" height="120px" width="120px">
+          <img src="images/dinosaure.png" alt="Badge dinosaure" height="120px" width="120px">
+          <img src="images/GoatNoit.png" alt="Badge GoatNoît" height="120px" width="120px">
           <a
             href="javascript:void(0)"
             onclick="togglePopupRules()"
             class="popup-rules-exit"
-            >Fermer</a
+            >X</a
           >
         </div>
       </div>
@@ -32,12 +39,18 @@
       <div id="popup-overlay-succes">
         <div class="popup-content-succes">
           <p>🏆 Succès: 🏆</p>
-          <p>Waouw tu possèdes tant de Benoît tu es un GOAT</p>
+        <div class="badges">
+          <p><img src="images/pizza.png" alt="badge pizza" height="100px" width="100px"> 1000 Benoîts: La pizza c'est la vie !</p>
+          <p><img src="images/drapeau reunion.png"alt="badge drapeau " height="100px" width="100px"> 5000 Benoîts: Un petit voyage dans son pays de coeur?</p>
+          <p><img src="images/poulpe.png" alt="badge poulpe" height="100px" width="100px">10 000 Benoîts: Tu remportes son animal favoris</p>
+          <p><img src="images/dinosaure.png" alt="badge dino" height="100px" width="100px"> 15 000 Benoîts: Adopte un dino'</p>
+          <p><img src="images/GoatNoit.png" alt="badge GoatNoît" height="100px" width="100px">20 000 Benoîts: Tu viens d'obtenir le rang ultime, tu es le GoatNoît</p>
+          </div>
           <a
             href="javascript:void(0)"
             onclick="togglePopupSucces()"
             class="popup-succes-exit"
-            >Fermer</a
+            >X</a
           >
         </div>
       </div>
@@ -68,7 +81,7 @@
             href="javascript:void(0)"
             onclick="togglePopupTeam()"
             class="popup-team-exit"
-            >Fermer</a
+            >X</a
           >
         </div>
       </div>
@@ -77,13 +90,12 @@
       <div id="popup-overlay-option">
         <div class="popup-content-option">
           <p>⚙️ Options ⚙️</p>
-          <p>🔊 VOLUME:🔊 </p>
-          <p>**** BARRE DE VOLUME ****</p>
+          <p><form><label>🔊 VOLUME: <input type="range" value="50" min="0" max="100"></label></form></p>   
           <a
             href="javascript:void(0)"
             onclick="togglePopupOption()"
             class="popup-option-exit"
-            >Fermer</a
+            >X</a
           >
         </div>
       </div>
