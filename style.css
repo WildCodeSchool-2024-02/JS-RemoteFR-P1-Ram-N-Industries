@@ -161,24 +161,8 @@ footer {
 }
 
 
-/* INTO THE POPUP */
+/* INTO THE POPUPS */
 
-.popup-content-option {
-  max-width: 600px;
-  width: 100%;
-  padding: 30px;
-  box-sizing: border-box;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  border-radius: 30px;
-  transition: top;
-  opacity: 95%;
-  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
-}
 /* POP UP REGLE */
 .popup-content-rules {
   max-width: 1200px;

@@ -9,7 +9,6 @@
   </head>
 
   <body>
-    <audio id ="song"><source src="images/musicB.mp3"></audio>
     <header>
       <button onclick="togglePopupRules()">Règle</button>
       <div id="popup-overlay-rules">
@@ -90,7 +89,9 @@
       <div id="popup-overlay-option">
         <div class="popup-content-option">
           <p>⚙️ Options ⚙️</p>
-          <p><form><label>🔊 VOLUME: <input type="range" value="50" min="0" max="100"></label></form></p>   
+          <p>🔊 MUSIQUE</p>
+
+          <p><audio controls="controls" loop="loop" autoplay="autoplay"><source src="images/musicB.mp"></audio></p>   
           <a
             href="javascript:void(0)"
             onclick="togglePopupOption()"

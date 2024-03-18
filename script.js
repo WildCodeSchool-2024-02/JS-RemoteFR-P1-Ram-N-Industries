@@ -113,6 +113,4 @@ noDrag.addEventListener("dragstart", (event) => {
   event.preventDefault();
 });
 
-window.addEventListener("click", () => {
-  document.getElementById("song").play();
-});
+
