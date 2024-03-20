@@ -1,18 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+* {
+  box-sizing: border-box;
+}
 
 /* Body et header */
-
 body {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
   margin: 0;
-  font-family: "Oxanium","Montserrat", sans-serif;
+  font-family: "Oxanium", "Montserrat", sans-serif;
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  @media screen and (max-width: 400px) {
+  }
 }
 
+/* Burger Menu */
+nav {
+  display: none;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+/* responsive pour le burger  */
+@media screen and (max-width: 400px) {
+  nav {
+    display: initial;
+    opacity: 95%;
+  }
+
+  #icons {
+    position: fixed;
+    display: block;
+    width: 60px;
+    font-size: 30px;
+  }
+
+  #icons:before {
+    content: "\2630";
+  }
+
+  .active #icons:before {
+    content: "\2715";
+  }
+
+  nav ul {
+    position: fixed;
+    left: -150%;
+    top: 5%;
+    background: linear-gradient(#1f1f1f 50%, #f3156c);
+    opacity: 95%;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+  nav > img {
+    width: 150px;
+  }
+  nav li {
+    padding: 3px 0;
+    opacity: initial;
+  }
+
+  nav.active ul {
+    left: 0;
+    position: fixed;
+  }
+}
+
+/* Menu Version Desktop */
 header {
   display: flex;
   justify-content: space-around;
@@ -20,6 +80,9 @@ header {
   align-items: flex-start;
   margin: 0.5rem;
   height: 4rem;
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 }
 
 button {
@@ -40,11 +103,10 @@ button {
 img.logoW {
   margin-top: -5rem;
   border-radius: 8em;
-  height: 150;
+  height: 150px;
   padding-block: none;
   cursor: pointer;
   align-items: flex-start;
-
 }
 
 a {
@@ -52,33 +114,43 @@ a {
   text-decoration: none;
 }
 
+/* SECTION CLICKER */
+
 .score {
   display: flex;
   flex-direction: column;
+  font-size: 3rem;
+}
+.score > ul {
+  padding-inline-start: 0;
+}
+
+.score>ul>#counter {
+  margin-right: 1.5rem;
 }
 
 li {
   list-style-type: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 h1,
 h2 {
-  padding-left: 3rem;
+  font-size: 2rem;
 }
 
-li > img {
+li>img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
 }
 
-li > img:active {
+li>img:active {
   background-color: #170202;
   box-shadow: 0 5px #666;
-  transform: translateY(10px);
+  transform: scale(1.1);
 }
-
+/* SECTION BONUS */
 section > a > img {
   width: 80px;
   height: auto;
@@ -92,7 +164,7 @@ section > a > img {
   width: auto;
 }
 
-section > a {
+section>a {
   color: white;
   text-decoration: none;
   background-color: #4e515bb8;
@@ -100,6 +172,11 @@ section > a {
   display: grid;
   height: 8rem;
   width: 25rem;
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    padding: 0 2rem;
+    height: initial;
+  }
 }
 
 .bonus {
@@ -107,10 +184,18 @@ section > a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  column-gap: 5rem;
+
   align-self: center;
   margin-left: 5rem;
-
+  width: auto;
   margin-right: 5rem;
+  @media screen and (max-width: 400px) {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+  }
 }
 
 .container {
@@ -118,24 +203,41 @@ section > a {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: smaller;
+  width: auto;
+  height: auto;
 }
 
-.container > img {
+.container>img {
   justify-self: center;
   align-self: center;
 }
+
 .details {
-  padding-right: 0.;
+  padding-right: 0;
 }
 .details > p {
- font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
-footer {
+.allBonuses {
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 4em;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width:400px) {
+  body {
+    min-width: 90vh;
+    height: 100%;
+  }
+
+  .bonus {
+    min-width: 50vh;
+    margin-right: 2em;
+    margin-left: 2em;
+  }
 }
 
 /* BUTTON POP UP */
@@ -160,7 +262,6 @@ footer {
 #popup-overlay-team.open {
   display: block;
 }
-
 
 /* INTO THE POPUPS */
 
@@ -198,20 +299,15 @@ footer {
   transition: top;
   opacity: 95%;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
-  @media screen and (max-width: 380px) {
-    color: green;
-    padding: 30%;
-
-  }
 }
 
-.popup-content-succes > .badges {
+.popup-content-succes>.badges {
   font-size: 30px;
 }
 
-.popup-content-succes > .badges > p {
+.popup-content-succes>.badges>p {
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   display: flex;
 }
 
@@ -233,10 +329,10 @@ footer {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-.popup-content-team > .pictures > img {
- border-radius: 30%;
- width: 150px;
- height: 150px;
+.popup-content-team>.pictures>img {
+  border-radius: 30%;
+  width: 150px;
+  height: 150px;
 }
 
 /* POP UP OPTION */
@@ -268,12 +364,132 @@ footer {
   right: -10px;
   background-color: white;
   text-decoration: none;
-  color: green;
+  color: black;
   padding: 5px 10px;
   border-radius: 20px;
-  @media screen and (max-width: 380px) {
-    color: green;
-  }
+}
+
+                              /*BURGER POPUPS*/
+
+/* POP UP BURGER BASES */
+
+#popup-overlay-option-burger,
+#popup-overlay-rules-burger,
+#popup-overlay-succes-burger,
+#popup-overlay-team-burger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  display: none;
+  animation: popupanim 1.5s;
+}
+
+#popup-overlay-option-burger.open,
+#popup-overlay-rules-burger.open,
+#popup-overlay-succes-burger.open,
+#popup-overlay-team-burger.open {
+  display: block;
+}
+
+
+/* BURGER POP UP REGLE */
+
+.popup-content-rules-burger {
+
+  opacity: 100%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+/* BURGER POP UP SUCCES */
+.popup-content-succes-burger {
+  max-width: 1300px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-succes-burger > .badges {
+  font-size: 1rem;
+}
+
+.popup-content-succes-burger > .badges > p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: flex;
+}
+
+/* BURGER POP UP L'EQUIPE */
+.popup-content-team-burger {
+  max-width: 800px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-team-burger > .pictures > img {
+  border-radius: 30%;
+  width: auto;
+  height: 150px;
+}
+
+/* BURGER POP UP OPTION */
+
+.popup-content-option-burger {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-color: black;
+}
+
+/* BURGER BUTTON EXIT */
+@media screen and (max-width: 400px) {
+  
+}
+.popup-option-exit-burger,
+.popup-rules-exit-burger,
+.popup-succes-exit-burger,
+.popup-team-exit-burger {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 /* ANIMATION BUTTON */
@@ -282,6 +498,7 @@ footer {
   from {
     transform: scale(0);
   }
+
   to {
     transform: scale(1);
   }
@@ -295,4 +512,29 @@ footer {
 
 .unavailable {
   color: red;
+}
+
+.lock {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.unlock {
+  color: #3e8e41;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.95, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.zoom {
+  animation: zoom 0.5s ease infinite;
 }
