@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
 
 /* Body et header */
 
 body {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
   margin: 0;
-  font-family: "Oxanium","Montserrat", sans-serif;
+  font-family: "Oxanium", "Montserrat", sans-serif;
   color: white;
   text-align: center;
   display: flex;
@@ -20,6 +20,9 @@ header {
   align-items: flex-start;
   margin: 0.5rem;
   height: 4rem;
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 }
 
 button {
@@ -55,16 +58,19 @@ a {
   display: flex;
   flex-direction: column;
 }
+.score > ul > #counter {
+  margin-right: 1.5rem;
+}
 
 li {
   list-style-type: none;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 h1,
 h2 {
-  padding-left: 3rem;
+  align-self: center;
 }
 
 li > img {
@@ -75,7 +81,7 @@ li > img {
 li > img:active {
   background-color: #170202;
   box-shadow: 0 5px #666;
-  transform: translateY(10px);
+  transform: scale(1.1);
 }
 
 section > a > img {
@@ -106,6 +112,8 @@ section > a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
+  column-gap: 10rem;
+
   align-self: center;
   margin-left: 5rem;
 
@@ -117,6 +125,7 @@ section > a {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: smaller;
+  padding-right: 0.5rem;
 }
 
 .container > img {
@@ -124,10 +133,10 @@ section > a {
   align-self: center;
 }
 .details {
-  padding-right: 0.;
+  padding-right: 0;
 }
 .details > p {
- font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 footer {
@@ -159,7 +168,6 @@ footer {
 #popup-overlay-team.open {
   display: block;
 }
-
 
 /* INTO THE POPUPS */
 
@@ -228,9 +236,9 @@ footer {
 }
 
 .popup-content-team > .pictures > img {
- border-radius: 30%;
- width: 150px;
- height: 150px;
+  border-radius: 30%;
+  width: auto;
+  height: 150px;
 }
 
 /* POP UP OPTION */
@@ -267,6 +275,129 @@ footer {
   border-radius: 20px;
 }
 
+                              /*BURGER POPUPS*/
+
+/* POP UP BURGER BASES */
+
+#popup-overlay-option-burger,
+#popup-overlay-rules-burger,
+#popup-overlay-succes-burger,
+#popup-overlay-team-burger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+  display: none;
+  animation: popupanim 1.5s;
+}
+
+#popup-overlay-option-burger.open,
+#popup-overlay-rules-burger.open,
+#popup-overlay-succes-burger.open,
+#popup-overlay-team-burger.open {
+  display: block;
+}
+
+
+/* BURGER POP UP REGLE */
+
+.popup-content-rules-burger {
+
+  opacity: 100%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+/* BURGER POP UP SUCCES */
+.popup-content-succes-burger {
+  max-width: 1300px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-succes-burger > .badges {
+  font-size: 1rem;
+}
+
+.popup-content-succes-burger > .badges > p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: flex;
+}
+
+/* BURGER POP UP L'EQUIPE */
+.popup-content-team-burger {
+  max-width: 800px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-image: linear-gradient(#1f1f1f 50%, #f3156c);
+}
+
+.popup-content-team-burger > .pictures > img {
+  border-radius: 30%;
+  width: auto;
+  height: 150px;
+}
+
+/* BURGER POP UP OPTION */
+
+.popup-content-option-burger {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: top;
+  opacity: 95%;
+  background-color: black;
+}
+
+/* BURGER BUTTON EXIT */
+@media screen and (max-width: 400px) {
+  
+}
+.popup-option-exit-burger,
+.popup-rules-exit-burger,
+.popup-succes-exit-burger,
+.popup-team-exit-burger {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
 /* ANIMATION BUTTON */
 
 @keyframes popupanim {
@@ -286,4 +417,85 @@ footer {
 
 .unavailable {
   color: red;
+}
+
+.lock {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.unlock {
+  color: #3e8e41;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.zoom {
+  animation: zoom 0.5s ease infinite;
+}
+
+/* Burger Menu */
+nav {
+  display: none;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+/* responsive pour le burger  */
+@media screen and (max-width: 400px) {
+  nav {
+    display: initial;
+  }
+
+  #icons {
+    display: block;
+    width: 60px;
+    font-size: 30px;
+  }
+
+  #icons:before {
+    content: "\2630";
+  }
+
+  .active #icons:before {
+    content: "\2715";
+  }
+
+  nav ul {
+    position: fixed;
+    left: -150%;
+    top: 5%;
+    background: linear-gradient(#1f1f1f 50%, #f3156c);
+    opacity: 80%;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+  nav > img {
+    width: 150px;
+  }
+  nav li {
+    padding: 3px 0;
+  }
+
+  nav li a:hover {
+    color: #d65804;
+  }
+
+  nav.active ul {
+    left: 0;
+    position: absolute;
+  }
 }
