@@ -23,24 +23,24 @@ function togglePopupOption() {
 ///////////////// POPUPS BURGER ////////////
 
 function togglePopupRulesBurger() {
-    let popup = document.querySelector("#popup-overlay-rules-burger");
-    popup.classList.toggle("open");
-  }
-  
-  function togglePopupSuccesBurger() {
-    let popup = document.querySelector("#popup-overlay-succes-burger");
-    popup.classList.toggle("open");
-  }
-  
-  function togglePopupTeamBurger() {
-    let popup = document.querySelector("#popup-overlay-team-burger");
-    popup.classList.toggle("open");
-  }
-  
-  function togglePopupOptionBurger() {
-    let popup = document.querySelector("#popup-overlay-option-burger");
-    popup.classList.toggle("open");
-  }
+  let popup = document.querySelector("#popup-overlay-rules-burger");
+  popup.classList.toggle("open");
+}
+
+function togglePopupSuccesBurger() {
+  let popup = document.querySelector("#popup-overlay-succes-burger");
+  popup.classList.toggle("open");
+}
+
+function togglePopupTeamBurger() {
+  let popup = document.querySelector("#popup-overlay-team-burger");
+  popup.classList.toggle("open");
+}
+
+function togglePopupOptionBurger() {
+  let popup = document.querySelector("#popup-overlay-option-burger");
+  popup.classList.toggle("open");
+}
 
 /* MENU BURGER */
 const links = document.querySelectorAll("nav li");
@@ -54,7 +54,6 @@ links.forEach((link) => {
     nav.classList.remove("active");
   });
 });
-
 
 //CLICKER//
 const clicking = document.querySelector("#clicking");
@@ -258,7 +257,7 @@ const bonusChristopher = document
   .addEventListener("click", bonusChristopherPurchase);
 const bonusSamuel = document
   .querySelector("#bonusSamuel")
-  .addEventListener("click", bonusSamuelPurchase);  
+  .addEventListener("click", bonusSamuelPurchase);
 
 /* Drag prevent */
 const noDrag = document.querySelector("body");
@@ -296,26 +295,23 @@ const succesCheck = () => {
     succesGoat.classList.add("unlock");
   }
 };
-// SOUND SLIDE 
+// SOUND SLIDE
 const slideSound = document.getElementById("volumeSound");
 slideSound.addEventListener("input", function () {
-  const volume = (slideSound.value) / 100;
+  const volume = slideSound.value / 100;
   const music = document.querySelectorAll("audio");
 
-    music.forEach((e) => {
-           e.volume = volume;
-    });
-
+  music.forEach((e) => {
+    e.volume = volume;
   });
+});
 //BURGER SOUND SLIDE
-  const slideSoundBurger = document.getElementById("volumeSoundBurger");
-  slideSoundBurger.addEventListener("input", function () {
-  const volumeBurger = (slideSoundBurger.value) / 100;
+const slideSoundBurger = document.getElementById("volumeSoundBurger");
+slideSoundBurger.addEventListener("input", function () {
+  const volumeBurger = slideSoundBurger.value / 100;
   const musicBurger = document.querySelectorAll("audio");
 
-    musicBurger.forEach((e) => {
-           e.volume = volumeBurger;
-    });
-
+  musicBurger.forEach((e) => {
+    e.volume = volumeBurger;
   });
-
+});
