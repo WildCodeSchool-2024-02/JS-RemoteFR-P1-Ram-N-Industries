@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
 
 /* Body et header */
 
 body {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
   margin: 0;
-  font-family: "Oxanium","Montserrat", sans-serif;
+  font-family: "Oxanium", "Montserrat", sans-serif;
   color: white;
   text-align: center;
   display: flex;
@@ -79,7 +79,7 @@ li > img {
 li > img:active {
   background-color: #170202;
   box-shadow: 0 5px #666;
-  transform: translateY(10px);
+  transform: scale(1.1);
 }
 
 section > a > img {
@@ -123,6 +123,7 @@ section > a {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: smaller;
+  padding-right: 0.5rem;
 }
 
 .container > img {
@@ -130,10 +131,10 @@ section > a {
   align-self: center;
 }
 .details {
-  padding-right: 0.;
+  padding-right: 0;
 }
 .details > p {
- font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 footer {
@@ -165,7 +166,6 @@ footer {
 #popup-overlay-team.open {
   display: block;
 }
-
 
 /* INTO THE POPUPS */
 
@@ -234,9 +234,9 @@ footer {
 }
 
 .popup-content-team > .pictures > img {
- border-radius: 30%;
- width: 150px;
- height: 150px;
+  border-radius: 30%;
+  width: auto;
+  height: 150px;
 }
 
 /* POP UP OPTION */
@@ -292,4 +292,29 @@ footer {
 
 .unavailable {
   color: red;
+}
+
+.lock {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.unlock {
+  color: #3e8e41;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.zoom {
+  animation: zoom 0.5s ease infinite;
 }

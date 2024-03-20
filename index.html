@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <audio id="clickSound"  src="./images/click.mp3"></audio>
     <header>
       <button onclick="togglePopupRules()">Règle</button>
       <div id="popup-overlay-rules">
@@ -20,7 +21,7 @@
             nombres de Benoîts actuel
           </p>
           <p>Obtient des succès afin de montrer fièrement ton niveau :</p>
-          <img src="images/pizza.png" alt ="Badge pizza" height="120px" width="120px">
+          <img id="succes1" src="images/pizza.png" alt ="Badge pizza" height="120px" width="120px">
           <img src="images/drapeau reunion.png" alt="Badge ile de la Reunion" height="120px" width="120px">
           <img src="images/poulpe.png" alt="Badge poulpe" height="120px" width="120px">
           <img src="images/dinosaure.png" alt="Badge dinosaure" height="120px" width="120px">
@@ -39,11 +40,11 @@
         <div class="popup-content-succes">
           <p>🏆 Succès: 🏆</p>
         <div class="badges">
-          <p><img src="images/pizza.png" alt="badge pizza" height="100px" width="100px"> 1000 Benoîts: La pizza c'est la vie !</p>
-          <p><img src="images/drapeau reunion.png"alt="badge drapeau " height="100px" width="100px"> 5000 Benoîts: Un petit voyage dans son pays de coeur?</p>
-          <p><img src="images/poulpe.png" alt="badge poulpe" height="100px" width="100px">10 000 Benoîts: Tu remportes son animal favoris</p>
-          <p><img src="images/dinosaure.png" alt="badge dino" height="100px" width="100px"> 15 000 Benoîts: Adopte un dino'</p>
-          <p><img src="images/GoatNoit.png" alt="badge GoatNoît" height="100px" width="100px">20 000 Benoîts: Tu viens d'obtenir le rang ultime, tu es le GoatNoît</p>
+          <p id="succesPizza" class="lock"><img src="images/pizza.png" alt="badge pizza" height="100px" width="100px"> 10.000 Benoîts: La pizza c'est la vie !</p>
+          <p id="succesReunion" class="lock"><img src="images/drapeau reunion.png"alt="badge drapeau " height="100px" width="100px"> 100.000 Benoîts: Un petit voyage dans son pays de coeur?</p>
+          <p id="succesPoulpe" class="lock"><img src="images/poulpe.png" alt="badge poulpe" height="100px" width="100px">1.000.000 Benoîts: Tu remportes son animal favoris</p>
+          <p id="succesDino" class="lock"><img src="images/dinosaure.png" alt="badge dino" height="100px" width="100px"> 10.000.000 Benoîts: Adopte un dino'</p>
+          <p id="succesGoat" class="lock"><img src="images/GoatNoit.png" alt="badge GoatNoît" height="100px" width="100px">100.000.000 Benoîts: Tu viens d'obtenir le rang ultime, tu es le GoatNoît</p>
           </div>
           <a
             href="javascript:void(0)"
@@ -54,7 +55,7 @@
         </div>
       </div>
 
-      <img
+      <img id="logo"
         src="images/BenWild_Clicker_transparent.png"
         alt="logo"
         width="150px"
@@ -91,7 +92,7 @@
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
 
-          <p><audio controls="controls" loop="loop" autoplay="autoplay"><source src="images/musicB.mp"></audio></p>   
+          <p><audio id="music" controls="controls" loop="loop" autoplay="autoplay"src="images/musicB.mp"></audio></p>   
           <a
             href="javascript:void(0)"
             onclick="togglePopupOption()"
@@ -103,7 +104,7 @@
     </header>
     <main>
       <section class="score">
-        <h1>Nombre de Benoît</h1>
+        <h1 id="scoreTitle">Nombre de Benoît</h1>
 
         <ul>
           <li  id="counter">0</li>
@@ -115,31 +116,31 @@
       </section>
       <section class="bonus">
         <a id="bonusAntho" class="container" href="#Bonus"
-          ><img src="images/Antho.png" alt="bonus1" class="Antho" />
+          ><img src="images/Antho.png" alt="bonus1" class="Antho " id="imgAntho" />
           <div class="details">
             <h3><span id="nombreAntho">0</span> Antho</h3>
             <p>Ça vaaaaaa il y a Antho pour multiplier tes Benoîts ! .</p>
-            <h4>Cout : <span id="costAntho">15</span> Benoît</h4>
+            <h4>Cout : <span id="costAntho" class="unavailable">100</span> Benoît</h4>
           </div>
         </a>
         <a  id="bonusAyoub" class="container" href="#Bonus"
-          ><img src="images/Ayoub.png" alt="bonus2" />
+          ><img src="images/Ayoub.png" alt="bonus2" id="imgAyoub" />
           <div class="details">
-            <h3>Ayoub: <span id="nombreAyoub">0</span></h3>
+            <h3><span id="nombreAyoub">0</span> Ayoub</h3>
             <p>Vu qu'il est le préféré d'Eleonore, il te rajoute des Benoîts/Sec</p>
-            <h4>Cout : <span id="costAyoub">10000</span> Benoît</h4>
+            <h4>Cout : <span id="costAyoub" class="unavailable">15</span> Benoît</h4>
           </div>
         </a>
-        <a class="container" href="#Bonus"
-          ><img src="images/IMG-2002.png" alt="bonus3" />
+        <a id="bonusVincent" class="container" href="#Bonus"
+          ><img src="images/IMG-2002.png" alt="bonus3"  id="imgVincent"/>
           <div class="details">
-            <h3>Vincent</h3>
+            <h3><span id="nombreVincent">0</span> Vincent</h3>
             <p>PHP ça le connaît mais nous on le connaît pas </p>
-            <h4>Coût du Bonus</h4>
+            <h4>Coût : <span id="costVincent" class="unavailable">1000</span> Benoît</h4>
           </div>
         </a>
         <a class="container" href="#Bonus"
-          ><img src="images/Samuel.png" alt="bonus4" />
+          ><img src="images/Samuel.png" alt="bonus4" id="imgSamuel"/>
           <div class="details">
             <h3>Samuel</h3>
             <p>Il a essayé de devenir le roi des pirates, mais finalement le JS a eu raison de lui </p>
@@ -147,19 +148,19 @@
           </div>
         </a>
         <a class="container" href="#Bonus"
-          ><img src="images/Yavuz.png" alt="bonus5" />
+          ><img src="images/Yavuz.png" alt="bonus5" id="imgYavuz"/>
           <div class="details">
             <h3>Yavuz</h3>
             <p>Le président est la pour t'aider à obtenir plus de Benoîts</p>
             <h4>Coût du bonus</h4>
           </div>
         </a>
-        <a class="container" href="#Bonus"
-          ><img src="images/Christopher.png" />
+        <a id="bonusChristopher" class="container" href="#Bonus"
+          ><img src="images/Christopher.png" id="imgChristopher"/>
           <div class="details">
-            <h3>Christopher</h3>
-            <p>Benoît a toujours besoin de son T.A! Il sera toujours la pour lui venir en aide</p>
-            <h4>Coût du bonus</h4>
+            <h3><span id="nombreChristopher">0</span> Christopher</h3>
+            <p>Benoît a toujours besoin de son T.A! Il sera toujours la pour lui venir en "aide"</p>
+            <h4>Coût : <span id="costChristopher" class="unavailable">10.000.000</span> Benoît</h4>
           </div>
         </a>
       </section>
