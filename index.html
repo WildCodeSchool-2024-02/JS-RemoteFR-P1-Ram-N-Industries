@@ -9,7 +9,7 @@
   </head>
 
   <body>
-
+    <audio id="clickSound"  src="./images/click.mp3"></audio>
     <!--Affichage  Menu Burger (Actif seulement en Mobile ) -->
     <nav id="nav">
       <div id="icons"></div>
@@ -83,9 +83,8 @@
         <div class="popup-content-option-burger">
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
-
-          <audio src="images/musicB.mp" autoplay="autoplay"></audio>
-          <input type="range" id="volumeSound" min="0" max="100" value="80" step="1"/>
+          <audio src="images/musicB.mp3" autoplay="autoplay"></audio>
+          <input type="range" id="volumeSoundBurger" min="0" max="100" value="80" step="1"/>
           <a
             href="javascript:void(0)"
             onclick="togglePopupOptionBurger()"
@@ -179,7 +178,7 @@
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
 
-          <audio src="images/musicB.mp" autoplay="autoplay"></audio>
+          <audio src="images/musicB.mp3" autoplay="autoplay"></audio>
           <input type="range" id="volumeSound" min="0" max="100" value="80" step="1"/>  
           <a
             href="javascript:void(0)"
@@ -226,14 +225,17 @@
         <h4>Coût : <span id="costVincent" class="unavailable">1000</span> Benoît</h4>
       </div>
     </a>
-    <a class="container" href="#Bonus"
+
+
+    <a id="bonusSamuel" class="container" href="#Bonus"
     ><img src="images/Samuel.png" alt="bonus4" id="imgSamuel"/>
     <div class="details">
-      <h3>Samuel</h3>
+      <h3><span id="nombreSamuel">0</span> Samuel</h3>
       <p>Il a essayé de devenir le roi des pirates, mais finalement le JS a eu raison de lui </p>
-      <h4>Coût du Bonus</h4>
+      <h4>Coût : <span id="costSamuel" class="unavailable">10</span> Benoît</h4>
     </div>
   </a>
+
   <a class="container" href="#Bonus"
   ><img src="images/Yavuz.png" alt="bonus5" id="imgYavuz"/>
   <div class="details">

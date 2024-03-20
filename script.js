@@ -69,6 +69,9 @@ const nombreChristopher = document.querySelector("#nombreChristopher");
 const costChristopher = document.querySelector("#costChristopher");
 const clickSound = document.querySelector("#clickSound");
 
+const costSamuel = document.querySelector("#costSamuel");
+const nombreSamuel = document.querySelector("#nombreSamuel");
+
 let score = 0;
 let bonusAnthoCost = 100;
 let bonusAyoubCost = 15;
@@ -80,6 +83,9 @@ let vincent = 1;
 let christopher = 1;
 let ayoubCheck = false;
 let christopherCheck = false;
+
+let bonusSamuelCost = 10;
+let samuel = 1;
 
 const playSound = () => {
   clickSound.currentTime = 0;
@@ -124,6 +130,15 @@ const updateCounterClass = () => {
     costChristopher.classList.add("available");
     document.querySelector("#bonusChristopher").classList.add("zoom");
   }
+  if (score < bonusSamuelCost) {
+    costSamuel.classList.remove("available");
+    costSamuel.classList.add("unavailable");
+    document.querySelector("#bonusSamuel").classList.remove("zoom");
+  } else {
+    costSamuel.classList.remove("unavailable");
+    costSamuel.classList.add("available");
+    document.querySelector("#bonusSamuel").classList.add("zoom");
+  }
 };
 const basicClick = () => {
   score++;
@@ -137,6 +152,9 @@ const basicClick = () => {
   }
   if (vincent > 1) {
     score += vincent * 5 - 1;
+  }
+  if (samuel > 1) {
+    score += samuel * 100 - 1;
   }
 };
 
@@ -210,6 +228,21 @@ const bonusChristopherPurchase = () => {
     }
   }
 };
+const bonusSamuelPurchase = () => {
+  if (score >= bonusSamuelCost) {
+    score = score - bonusSamuelCost;
+    samuel = samuel++;
+    bonusSamuelCost = Math.round(bonusSamuelCost * 1.5);
+    counter.innerHTML = score;
+    costSamuel.innerHTML = bonusSamuelCost;
+    nombreSamuel.innerHTML = samuel++;
+    updateCounterClass();
+    succesCheck();
+    if (samuel > 1) {
+      score += samuel * 100 - 1;
+    }
+  }
+};
 
 const bonusAntho = document
   .querySelector("#bonusAntho")
@@ -223,6 +256,9 @@ const bonusVincent = document
 const bonusChristopher = document
   .querySelector("#bonusChristopher")
   .addEventListener("click", bonusChristopherPurchase);
+const bonusSamuel = document
+  .querySelector("#bonusSamuel")
+  .addEventListener("click", bonusSamuelPurchase);  
 
 /* Drag prevent */
 const noDrag = document.querySelector("body");
@@ -260,59 +296,26 @@ const succesCheck = () => {
     succesGoat.classList.add("unlock");
   }
 };
-
-/* SUCCES */
-const succesPizza = document.querySelector("#succesPizza");
-const succesReunion = document.querySelector("#succesReunion");
-const succesPoulpe = document.querySelector("#succesPoulpe");
-const succesDino = document.querySelector("#succesDino");
-const succesGoat = document.querySelector("#succesGoat");
-
-const succesCheck = () => {
-  if (score >= 10000) {
-    succesPizza.classList.remove("lock");
-    succesPizza.classList.add("unlock");
-  }
-  if (score >= 100000) {
-    succesReunion.classList.remove("lock");
-    succesReunion.classList.add("unlock");
-  }
-  if (score >= 1000000) {
-    succesPoulpe.classList.remove("lock");
-    succesPoulpe.classList.add("unlock");
-  }
-  if (score >= 10000000) {
-    succesDino.classList.remove("lock");
-    succesDino.classList.add("unlock");
-  }
-  if (score >= 100000000) {
-    succesGoat.classList.remove("lock");
-    succesGoat.classList.add("unlock");
-  }
-};
-
-/* MENU BURGER */
-const links = document.querySelectorAll("nav li");
-
-icons.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
-
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("active");
-  });
-});
+// SOUND SLIDE 
 const slideSound = document.getElementById("volumeSound");
-
 slideSound.addEventListener("input", function () {
-
-    const volume = (slideSound.value) / 100;
-
-    const music = document.querySelectorAll("audio");
+  const volume = (slideSound.value) / 100;
+  const music = document.querySelectorAll("audio");
 
     music.forEach((e) => {
            e.volume = volume;
     });
 
   });
+//BURGER SOUND SLIDE
+  const slideSoundBurger = document.getElementById("volumeSoundBurger");
+  slideSoundBurger.addEventListener("input", function () {
+  const volumeBurger = (slideSound.value) / 100;
+  const musicBurger = document.querySelectorAll("audio");
+
+    musicBurger.forEach((e) => {
+           e.volume = volumeBurger;
+    });
+
+  });
+
