@@ -9,13 +9,7 @@
   </head>
 
   <body>
-    <audio id="clickSound"  src="./images/click.mp3"></audio>
 
-
-
-
-
-    
     <!--Affichage  Menu Burger (Actif seulement en Mobile ) -->
     <nav id="nav">
       <div id="icons"></div>
@@ -90,7 +84,8 @@
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
 
-          <p><audio id="music" controls="controls" loop="loop" autoplay="autoplay"src="images/musicB.mp"></audio></p>   
+          <audio src="images/musicB.mp" autoplay="autoplay"></audio>
+          <input type="range" id="volumeSound" min="0" max="100" value="80" step="1"/>
           <a
             href="javascript:void(0)"
             onclick="togglePopupOptionBurger()"
@@ -101,16 +96,7 @@
         </ul>
         
       </nav>
-
-
-
-
-
-
-
-
-      
-    <!-- Menu Desktop -->
+<!-- Menu Desktop -->
     <header>
       <button onclick="togglePopupRules()">Règle</button>
       <div id="popup-overlay-rules">
@@ -193,7 +179,8 @@
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
 
-          <p><audio id="music" controls="controls" loop="loop" autoplay="autoplay"src="images/musicB.mp"></audio></p>   
+          <audio src="images/musicB.mp" autoplay="autoplay"></audio>
+          <input type="range" id="volumeSound" min="0" max="100" value="80" step="1"/>  
           <a
             href="javascript:void(0)"
             onclick="togglePopupOption()"
@@ -211,12 +198,11 @@
           <li  id="counter">0</li>
           <li><img class="clicker" id="clicking" src="images/Benoît 1.png" alt="Image du Goat" /></li>
         </ul>
-</main>
-<footer>
-        <h2>Bonus</h2>
       </section>
-      <section class="bonus">
-        <a id="bonusAntho" class="container" href="#Bonus"
+        <section class="allBonuses">
+          <h2>Bonus</h2>
+        <section class="bonus">
+          <a id="bonusAntho" class="container" href="#Bonus"
           ><img src="images/Antho.png" alt="bonus1" class="Antho " id="imgAntho" />
           <div class="details">
             <h3><span id="nombreAntho">0</span> Antho</h3>
@@ -225,48 +211,49 @@
           </div>
         </a>
         <a  id="bonusAyoub" class="container" href="#Bonus"
-          ><img src="images/Ayoub.png" alt="bonus2" id="imgAyoub" />
-          <div class="details">
-            <h3><span id="nombreAyoub">0</span> Ayoub</h3>
-            <p>Vu qu'il est le préféré d'Eleonore, il te rajoute des Benoîts/Sec</p>
-            <h4>Cout : <span id="costAyoub" class="unavailable">15</span> Benoît</h4>
-          </div>
-        </a>
-        <a id="bonusVincent" class="container" href="#Bonus"
-          ><img src="images/IMG-2002.png" alt="bonus3"  id="imgVincent"/>
-          <div class="details">
-            <h3><span id="nombreVincent">0</span> Vincent</h3>
-            <p>PHP ça le connaît mais nous on le connaît pas </p>
-            <h4>Coût : <span id="costVincent" class="unavailable">1000</span> Benoît</h4>
-          </div>
-        </a>
-        <a class="container" href="#Bonus"
-          ><img src="images/Samuel.png" alt="bonus4" id="imgSamuel"/>
-          <div class="details">
-            <h3>Samuel</h3>
-            <p>Il a essayé de devenir le roi des pirates, mais finalement le JS a eu raison de lui </p>
-            <h4>Coût du Bonus</h4>
-          </div>
-        </a>
-        <a class="container" href="#Bonus"
-          ><img src="images/Yavuz.png" alt="bonus5" id="imgYavuz"/>
-          <div class="details">
-            <h3>Yavuz</h3>
-            <p>Le président est la pour t'aider à obtenir plus de Benoîts</p>
-            <h4>Coût du bonus</h4>
-          </div>
-        </a>
-        <a id="bonusChristopher" class="container" href="#Bonus"
-          ><img src="images/Christopher.png" id="imgChristopher"/>
-          <div class="details">
-            <h3><span id="nombreChristopher">0</span> Christopher</h3>
-            <p>Benoît a toujours besoin de son T.A! Il sera toujours la pour lui venir en "aide"</p>
-            <h4>Coût : <span id="costChristopher" class="unavailable">10.000.000</span> Benoît</h4>
-          </div>
-        </a>
-      </section>
-      </footer>
+        ><img src="images/Ayoub.png" alt="bonus2" id="imgAyoub" />
+        <div class="details">
+          <h3><span id="nombreAyoub">0</span> Ayoub</h3>
+          <p>Vu qu'il est le préféré d'Eleonore, il te rajoute des Benoîts/Sec</p>
+          <h4>Cout : <span id="costAyoub" class="unavailable">15</span> Benoît</h4>
+        </div>
+      </a>
+      <a id="bonusVincent" class="container" href="#Bonus"
+      ><img src="images/IMG-2002.png" alt="bonus3"  id="imgVincent"/>
+      <div class="details">
+        <h3><span id="nombreVincent">0</span> Vincent</h3>
+        <p>PHP ça le connaît mais nous on le connaît pas </p>
+        <h4>Coût : <span id="costVincent" class="unavailable">1000</span> Benoît</h4>
+      </div>
+    </a>
+    <a class="container" href="#Bonus"
+    ><img src="images/Samuel.png" alt="bonus4" id="imgSamuel"/>
+    <div class="details">
+      <h3>Samuel</h3>
+      <p>Il a essayé de devenir le roi des pirates, mais finalement le JS a eu raison de lui </p>
+      <h4>Coût du Bonus</h4>
+    </div>
+  </a>
+  <a class="container" href="#Bonus"
+  ><img src="images/Yavuz.png" alt="bonus5" id="imgYavuz"/>
+  <div class="details">
+    <h3>Yavuz</h3>
+    <p>Le président est la pour t'aider à obtenir plus de Benoîts</p>
+    <h4>Coût du bonus</h4>
+  </div>
+</a>
+<a id="bonusChristopher" class="container" href="#Bonus"
+><img src="images/Christopher.png" id="imgChristopher"/>
+<div class="details">
+  <h3><span id="nombreChristopher">0</span> Christopher</h3>
+  <p>Benoît a toujours besoin de son T.A! Il sera toujours la pour lui venir en "aide"</p>
+  <h4>Coût : <span id="costChristopher" class="unavailable">10.000.000</span> Benoît</h4>
+</div>
+</a>
+</section>
+</section>
+</main>
 
-      <script src="script.js"></script>
-  </body>
+<script src="script.js"></script>
+</body>
 </html>

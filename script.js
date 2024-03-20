@@ -261,4 +261,58 @@ const succesCheck = () => {
   }
 };
 
+/* SUCCES */
+const succesPizza = document.querySelector("#succesPizza");
+const succesReunion = document.querySelector("#succesReunion");
+const succesPoulpe = document.querySelector("#succesPoulpe");
+const succesDino = document.querySelector("#succesDino");
+const succesGoat = document.querySelector("#succesGoat");
 
+const succesCheck = () => {
+  if (score >= 10000) {
+    succesPizza.classList.remove("lock");
+    succesPizza.classList.add("unlock");
+  }
+  if (score >= 100000) {
+    succesReunion.classList.remove("lock");
+    succesReunion.classList.add("unlock");
+  }
+  if (score >= 1000000) {
+    succesPoulpe.classList.remove("lock");
+    succesPoulpe.classList.add("unlock");
+  }
+  if (score >= 10000000) {
+    succesDino.classList.remove("lock");
+    succesDino.classList.add("unlock");
+  }
+  if (score >= 100000000) {
+    succesGoat.classList.remove("lock");
+    succesGoat.classList.add("unlock");
+  }
+};
+
+/* MENU BURGER */
+const links = document.querySelectorAll("nav li");
+
+icons.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+});
+const slideSound = document.getElementById("volumeSound");
+
+slideSound.addEventListener("input", function () {
+
+    const volume = (slideSound.value) / 100;
+
+    const music = document.querySelectorAll("audio");
+
+    music.forEach((e) => {
+           e.volume = volume;
+    });
+
+  });
