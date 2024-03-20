@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
 
-/* Body et header */
+* {
+  box-sizing: border-box;
+}
 
+/* Body et header */
 body {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
   margin: 0;
-  font-family: "Oxanium","Montserrat", sans-serif;
+  font-family: "Oxanium",
+    "Montserrat",
+    sans-serif;
   color: white;
   text-align: center;
   display: flex;
@@ -54,8 +59,10 @@ a {
 .score {
   display: flex;
   flex-direction: column;
+  font-size: 3rem;
 }
-.score > ul > #counter {
+
+.score>ul>#counter {
   margin-right: 1.5rem;
 }
 
@@ -65,24 +72,33 @@ li {
   margin-bottom: 1rem;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+ul {
+  justify-content: center;
+
+}
+
 h1,
 h2 {
   align-self: center;
 }
 
-li > img {
+li>img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
   margin-right: 2rem;
 }
 
-li > img:active {
+li>img:active {
   background-color: #170202;
   box-shadow: 0 5px #666;
   transform: translateY(10px);
 }
 
-section > a > img {
+section>a>img {
   width: 80px;
   height: auto;
   border-radius: 2em;
@@ -95,7 +111,7 @@ section > a > img {
   width: auto;
 }
 
-section > a {
+section>a {
   color: white;
   text-decoration: none;
   background-color: #4e515bb8;
@@ -110,12 +126,12 @@ section > a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
-  column-gap: 10rem;
+  column-gap: 5rem;
 
   align-self: center;
-  margin-left: 5rem;
-
-  margin-right: 5rem;
+  
+  width: auto;
+  
 }
 
 .container {
@@ -123,24 +139,43 @@ section > a {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: smaller;
+  width: auto;
+  height: auto;
 }
 
-.container > img {
+.container>img {
   justify-self: center;
   align-self: center;
 }
+
 .details {
-  padding-right: 0.;
-}
-.details > p {
- font-size: 0.7rem;
+  padding-right: 0;
 }
 
-footer {
+.details>p {
+  font-size: 0.7rem;
+}
+
+
+.allbonuses {
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 4em;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width:400px) {
+  body {
+    min-width: 90vh;
+    height: 100%;
+  }
+
+  .bonus {
+    min-width: 50vh;
+    margin-right: 2em;
+    margin-left: 2em;
+  }
 }
 
 /* BUTTON POP UP */
@@ -205,11 +240,11 @@ footer {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-.popup-content-succes > .badges {
+.popup-content-succes>.badges {
   font-size: 30px;
 }
 
-.popup-content-succes > .badges > p {
+.popup-content-succes>.badges>p {
   margin-top: 5px;
   margin-bottom: 0;
   display: flex;
@@ -233,10 +268,10 @@ footer {
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-.popup-content-team > .pictures > img {
- border-radius: 30%;
- width: 150px;
- height: 150px;
+.popup-content-team>.pictures>img {
+  border-radius: 30%;
+  width: 150px;
+  height: 150px;
 }
 
 /* POP UP OPTION */
@@ -279,6 +314,7 @@ footer {
   from {
     transform: scale(0);
   }
+
   to {
     transform: scale(1);
   }
