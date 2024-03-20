@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+* {
+  box-sizing: border-box;
+}
 
 /* Body et header */
 
@@ -11,8 +14,66 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  @media screen and (max-width: 400px) {
+  }
 }
 
+/* Burger Menu */
+nav {
+  display: none;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+/* responsive pour le burger  */
+@media screen and (max-width: 400px) {
+  nav {
+    display: initial;
+    opacity: 95%;
+  }
+
+  #icons {
+    position: fixed;
+    display: block;
+    width: 60px;
+    font-size: 30px;
+  }
+
+  #icons:before {
+    content: "\2630";
+  }
+
+  .active #icons:before {
+    content: "\2715";
+  }
+
+  nav ul {
+    position: fixed;
+    left: -150%;
+    top: 5%;
+    background: linear-gradient(#1f1f1f 50%, #f3156c);
+    opacity: 95%;
+    width: 100%;
+    text-align: center;
+    transition: 0.25s;
+  }
+  nav > img {
+    width: 150px;
+  }
+  nav li {
+    padding: 3px 0;
+    opacity: initial;
+  }
+
+  nav.active ul {
+    left: 0;
+    position: fixed;
+  }
+}
+
+/* Menu Version Desktop */
 header {
   display: flex;
   justify-content: space-around;
@@ -20,6 +81,9 @@ header {
   align-items: flex-start;
   margin: 0.5rem;
   height: 4rem;
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 }
 
 button {
@@ -40,7 +104,7 @@ button {
 img.logoW {
   margin-top: -5rem;
   border-radius: 8em;
-  height: 150;
+  height: 150px;
   padding-block: none;
   cursor: pointer;
   align-items: flex-start;
@@ -51,29 +115,32 @@ a {
   text-decoration: none;
 }
 
+/* SECTION CLICKER */
+
 .score {
   display: flex;
   flex-direction: column;
 }
-.score > ul > #counter {
-  margin-right: 1.5rem;
+.score > ul {
+  padding-inline-start: 0;
 }
 
 li {
   list-style-type: none;
-  margin-top: 10px;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  font-size: 2rem;
+  align-self: center;
 }
 
 h1,
 h2 {
-  align-self: center;
+  font-size: 2rem;
 }
 
 li > img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
-  margin-right: 2rem;
 }
 
 li > img:active {
@@ -81,7 +148,7 @@ li > img:active {
   box-shadow: 0 5px #666;
   transform: scale(1.1);
 }
-
+/* SECTION BONUS */
 section > a > img {
   width: 80px;
   height: auto;
@@ -103,6 +170,11 @@ section > a {
   display: grid;
   height: 8rem;
   width: 25rem;
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    padding: 0 2rem;
+    height: initial;
+  }
 }
 
 .bonus {
@@ -111,11 +183,15 @@ section > a {
   grid-template-rows: 1fr 1fr;
   gap: 10px;
   column-gap: 10rem;
-
   align-self: center;
   margin-left: 5rem;
-
   margin-right: 5rem;
+  @media screen and (max-width: 400px) {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+  }
 }
 
 .container {
@@ -123,7 +199,6 @@ section > a {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   font-size: smaller;
-  padding-right: 0.5rem;
 }
 
 .container > img {
@@ -137,7 +212,7 @@ section > a {
   font-size: 0.7rem;
 }
 
-footer {
+.allBonuses {
   display: flex;
   flex-direction: column;
   margin-top: auto;
@@ -308,7 +383,7 @@ footer {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.05, 1.05);
+    transform: scale(0.95, 0.95);
   }
   100% {
     transform: scale(1, 1);

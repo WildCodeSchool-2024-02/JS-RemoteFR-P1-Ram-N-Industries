@@ -34,7 +34,7 @@ let score = 0;
 let bonusAnthoCost = 100;
 let bonusAyoubCost = 15;
 let bonusVincentCost = 1000;
-let bonusChristopherCost = 10000000;
+let bonusChristopherCost = 1;
 let antho = 1;
 let ayoub = 1;
 let vincent = 1;
@@ -221,3 +221,16 @@ const succesCheck = () => {
     succesGoat.classList.add("unlock");
   }
 };
+
+/* MENU BURGER */
+const links = document.querySelectorAll("nav li");
+
+icons.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+});
