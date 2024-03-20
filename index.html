@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" sizes="16x16" href="images/favicon.png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>𝓑enWîld 𝓒licker</title>
-  </head>
+
+<head>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" sizes="16x16" href="images/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝓑enWîld 𝓒licker</title>
+</head>
 
   <body>
     <audio id="clickSound"  src="./images/click.mp3"></audio>
-    
     <!--Affichage  Menu Burger (Actif seulement en Mobile ) -->
     <nav id="nav">
       <div id="icons"></div>
-        <img src="images/BenWild_Clicker_transparent.png" alt="Benwild clicker Logo" class="logo" />
+        <img src="images/BenWild_Clicker_transparent.png" alt="game logo" class="logo" />
         <ul>
           
-          <li><button onclick="togglePopupRules()">Règle</button>
-      <div id="popup-overlay-rules">
-        <div class="popup-content-rules">
+          <li><button onclick="togglePopupRulesBurger()">Règle</button>
+      <div id="popup-overlay-rules-burger">
+        <div class="popup-content-rules-burger">
           <p>🎲 Règle: 🎲</p>
           <p>
             Il faut collecter un maximum de Benoîts ! Pour cela il est possible
@@ -34,15 +34,15 @@
           <img src="images/GoatNoit.png" alt="Badge GoatNoît" height="120px" width="120px">
           <a
             href="javascript:void(0)"
-            onclick="togglePopupRules()"
-            class="popup-rules-exit"
+            onclick="togglePopupRulesBurger()"
+            class="popup-rules-exit-burger"
             >X</a>
           </li>
 
           <li>
-            <button onclick="togglePopupSucces()">Succès</button>
-      <div id="popup-overlay-succes">
-        <div class="popup-content-succes">
+            <button onclick="togglePopupSuccesBurger()">Succès</button>
+      <div id="popup-overlay-succes-burger">
+        <div class="popup-content-succes-burger">
           <p>🏆 Succès: 🏆</p>
         <div class="badges">
           <p id="succesPizza" class="lock"><img src="images/pizza.png" alt="badge pizza" height="100px" width="100px"> 10.000 Benoîts: La pizza c'est la vie !</p>
@@ -53,14 +53,14 @@
           </div>
           <a
             href="javascript:void(0)"
-            onclick="togglePopupSucces()"
-            class="popup-succes-exit"
+            onclick="togglePopupSuccesBurger()"
+            class="popup-succes-exit-burger"
             >X</a>  
           </li>
           <li> 
-            <button onclick="togglePopupTeam()">L'équipe</button>
-      <div id="popup-overlay-team">
-        <div class="popup-content-team">
+            <button onclick="togglePopupTeamBurger()">L'équipe</button>
+      <div id="popup-overlay-team-burger">
+        <div class="popup-content-team-burger">
           <p>🍜 Ram'N Industries: 🍜</p>
           <section class="pictures">
 
@@ -74,34 +74,34 @@
           <p>Rachel , ADJ , Max et NicoJ</p>
           <a
             href="javascript:void(0)"
-            onclick="togglePopupTeam()"
-            class="popup-team-exit"
+            onclick="togglePopupTeamBurger()"
+            class="popup-team-exit-burger"
             >X</a>  
           </li>
           <li>
-            <button onclick="togglePopupOption()">Options</button>
-      <div id="popup-overlay-option">
-        <div class="popup-content-option">
+            <button onclick="togglePopupOptionBurger()">Options</button>
+      <div id="popup-overlay-option-burger">
+        <div class="popup-content-option-burger">
           <p>⚙️ Options ⚙️</p>
           <p>🔊 MUSIQUE</p>
-
-          <p><audio id="music" controls="controls" loop="loop" autoplay="autoplay"src="images/musicB.mp"></audio></p>   
+          <audio src="images/musicB.mp3" autoplay="autoplay"></audio>
+          <input type="range" id="volumeSoundBurger" min="0" max="100" value="80" step="1"/>
           <a
             href="javascript:void(0)"
-            onclick="togglePopupOption()"
-            class="popup-option-exit"
+            onclick="togglePopupOptionBurger()"
+            class="popup-option-exit-burger"
             >X</a> 
           </li>
 
         </ul>
         
       </nav>
-    <!-- Menu Desktop -->
+<!-- Menu Desktop -->
     <header>
-      <button onclick="togglePopupRules()">Règle</button>
+      <button class="reglesButton" onclick="togglePopupRules()">Règles</button>
       <div id="popup-overlay-rules">
         <div class="popup-content-rules">
-          <p>🎲 Règle: 🎲</p>
+          <p>🎲 Règles: 🎲</p>
           <p>
             Il faut collecter un maximum de Benoîts ! Pour cela il est possible
             d'utiliser des bonus qui sont débloquable en fonction de votre
@@ -122,10 +122,10 @@
         </div>
       </div>
 
-      <button onclick="togglePopupSucces()">Succès</button>
-      <div id="popup-overlay-succes">
-        <div class="popup-content-succes">
-          <p>🏆 Succès: 🏆</p>
+    <button class="succesButton" onclick="togglePopupSucces()">Succès</button>
+    <div id="popup-overlay-succes">
+      <div class="popup-content-succes">
+        <p>🏆 Succès: 🏆</p>
         <div class="badges">
           <p id="succesPizza" class="lock"><img src="images/pizza.png" alt="badge pizza" height="100px" width="100px"> 10.000 Benoîts: La pizza c'est la vie !</p>
           <p id="succesReunion" class="lock"><img src="images/drapeau reunion.png"alt="badge drapeau " height="100px" width="100px"> 100.000 Benoîts: Un petit voyage dans son pays de coeur?</p>
@@ -150,36 +150,32 @@
         class="logoW"
       />
 
-      <button onclick="togglePopupTeam()">L'équipe</button>
-      <div id="popup-overlay-team">
-        <div class="popup-content-team">
-          <p>🍜 Ram'N Industries: 🍜</p>
-          <section class="pictures">
+    <button class="equipeButton" onclick="togglePopupTeam()">L'équipe</button>
+    <div id="popup-overlay-team">
+      <div class="popup-content-team">
+        <p>🍜 Ram'N Industries: 🍜</p>
+        <section class="pictures">
 
           <img src="images/rachel.jpg" alt="photo rachel">
-          <img src="images/ABJ.jpg"alt="photo ADJ">
-          <img src="images/maxime.jpg"alt="photo Maxime">
-          <img src="images/NicolasJ.jpg"alt="photo Nicolas J">
+          <img src="images/ABJ.jpg" alt="photo ADJ">
+          <img src="images/maxime.jpg" alt="photo Maxime">
+          <img src="images/NicolasJ.jpg" alt="photo Nicolas J">
 
         </section>
-          <p>L'équipe est composé de :</p>
-          <p>Rachel , ADJ , Max et NicoJ</p>
-          <a
-            href="javascript:void(0)"
-            onclick="togglePopupTeam()"
-            class="popup-team-exit"
-            >X</a
-          >
-        </div>
+        <p>L'équipe est composé de :</p>
+        <p>Rachel , ADJ , Max et NicoJ</p>
+        <a href="javascript:void(0)" onclick="togglePopupTeam()" class="popup-team-exit">X</a>
       </div>
+    </div>
 
-      <button onclick="togglePopupOption()">Options</button>
-      <div id="popup-overlay-option">
-        <div class="popup-content-option">
-          <p>⚙️ Options ⚙️</p>
-          <p>🔊 MUSIQUE</p>
+    <button class="optionButton" onclick="togglePopupOption()">Options</button>
+    <div id="popup-overlay-option">
+      <div class="popup-content-option">
+        <p>⚙️ Options ⚙️</p>
+        <p>🔊 MUSIQUE</p>
 
-          <p><audio id="music" controls="controls" loop="loop" autoplay="autoplay"src="images/musicB.mp"></audio></p>   
+          <audio src="images/musicB.mp3" autoplay="autoplay"></audio>
+          <input type="range" id="volumeSound" min="0" max="100" value="80" step="1"/>  
           <a
             href="javascript:void(0)"
             onclick="togglePopupOption()"
@@ -225,14 +221,17 @@
         <h4>Coût : <span id="costVincent" class="unavailable">1000</span> Benoît</h4>
       </div>
     </a>
-    <a class="container" href="#Bonus"
+
+
+    <a id="bonusSamuel" class="container" href="#Bonus"
     ><img src="images/Samuel.png" alt="bonus4" id="imgSamuel"/>
     <div class="details">
-      <h3>Samuel</h3>
+      <h3><span id="nombreSamuel">0</span> Samuel</h3>
       <p>Il a essayé de devenir le roi des pirates, mais finalement le JS a eu raison de lui </p>
-      <h4>Coût du Bonus</h4>
+      <h4>Coût : <span id="costSamuel" class="unavailable">10</span> Benoît</h4>
     </div>
   </a>
+
   <a class="container" href="#Bonus"
   ><img src="images/Yavuz.png" alt="bonus5" id="imgYavuz"/>
   <div class="details">

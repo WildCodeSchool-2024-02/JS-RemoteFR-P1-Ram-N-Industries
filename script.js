@@ -1,3 +1,5 @@
+//POPUPS//
+
 function togglePopupRules() {
   let popup = document.querySelector("#popup-overlay-rules");
   popup.classList.toggle("open");
@@ -18,6 +20,43 @@ function togglePopupOption() {
   popup.classList.toggle("open");
 }
 
+///////////////// POPUPS BURGER ////////////
+
+function togglePopupRulesBurger() {
+    let popup = document.querySelector("#popup-overlay-rules-burger");
+    popup.classList.toggle("open");
+  }
+  
+  function togglePopupSuccesBurger() {
+    let popup = document.querySelector("#popup-overlay-succes-burger");
+    popup.classList.toggle("open");
+  }
+  
+  function togglePopupTeamBurger() {
+    let popup = document.querySelector("#popup-overlay-team-burger");
+    popup.classList.toggle("open");
+  }
+  
+  function togglePopupOptionBurger() {
+    let popup = document.querySelector("#popup-overlay-option-burger");
+    popup.classList.toggle("open");
+  }
+
+/* MENU BURGER */
+const links = document.querySelectorAll("nav li");
+
+icons.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+});
+
+
+//CLICKER//
 const clicking = document.querySelector("#clicking");
 const counter = document.querySelector("#counter");
 const costAntho = document.querySelector("#costAntho");
@@ -30,6 +69,9 @@ const nombreChristopher = document.querySelector("#nombreChristopher");
 const costChristopher = document.querySelector("#costChristopher");
 const clickSound = document.querySelector("#clickSound");
 
+const costSamuel = document.querySelector("#costSamuel");
+const nombreSamuel = document.querySelector("#nombreSamuel");
+
 let score = 0;
 let bonusAnthoCost = 100;
 let bonusAyoubCost = 15;
@@ -41,6 +83,9 @@ let vincent = 1;
 let christopher = 1;
 let ayoubCheck = false;
 let christopherCheck = false;
+
+let bonusSamuelCost = 10;
+let samuel = 1;
 
 const playSound = () => {
   clickSound.currentTime = 0;
@@ -85,6 +130,15 @@ const updateCounterClass = () => {
     costChristopher.classList.add("available");
     document.querySelector("#bonusChristopher").classList.add("zoom");
   }
+  if (score < bonusSamuelCost) {
+    costSamuel.classList.remove("available");
+    costSamuel.classList.add("unavailable");
+    document.querySelector("#bonusSamuel").classList.remove("zoom");
+  } else {
+    costSamuel.classList.remove("unavailable");
+    costSamuel.classList.add("available");
+    document.querySelector("#bonusSamuel").classList.add("zoom");
+  }
 };
 const basicClick = () => {
   score++;
@@ -98,6 +152,9 @@ const basicClick = () => {
   }
   if (vincent > 1) {
     score += vincent * 5 - 1;
+  }
+  if (samuel > 1) {
+    score += samuel * 100 - 1;
   }
 };
 
@@ -171,6 +228,21 @@ const bonusChristopherPurchase = () => {
     }
   }
 };
+const bonusSamuelPurchase = () => {
+  if (score >= bonusSamuelCost) {
+    score = score - bonusSamuelCost;
+    samuel = samuel++;
+    bonusSamuelCost = Math.round(bonusSamuelCost * 1.5);
+    counter.innerHTML = score;
+    costSamuel.innerHTML = bonusSamuelCost;
+    nombreSamuel.innerHTML = samuel++;
+    updateCounterClass();
+    succesCheck();
+    if (samuel > 1) {
+      score += samuel * 100 - 1;
+    }
+  }
+};
 
 const bonusAntho = document
   .querySelector("#bonusAntho")
@@ -184,6 +256,9 @@ const bonusVincent = document
 const bonusChristopher = document
   .querySelector("#bonusChristopher")
   .addEventListener("click", bonusChristopherPurchase);
+const bonusSamuel = document
+  .querySelector("#bonusSamuel")
+  .addEventListener("click", bonusSamuelPurchase);  
 
 /* Drag prevent */
 const noDrag = document.querySelector("body");
@@ -221,16 +296,26 @@ const succesCheck = () => {
     succesGoat.classList.add("unlock");
   }
 };
+// SOUND SLIDE 
+const slideSound = document.getElementById("volumeSound");
+slideSound.addEventListener("input", function () {
+  const volume = (slideSound.value) / 100;
+  const music = document.querySelectorAll("audio");
 
-/* MENU BURGER */
-const links = document.querySelectorAll("nav li");
+    music.forEach((e) => {
+           e.volume = volume;
+    });
 
-icons.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
-
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("active");
   });
-});
+//BURGER SOUND SLIDE
+  const slideSoundBurger = document.getElementById("volumeSoundBurger");
+  slideSoundBurger.addEventListener("input", function () {
+  const volumeBurger = (slideSoundBurger.value) / 100;
+  const musicBurger = document.querySelectorAll("audio");
+
+    musicBurger.forEach((e) => {
+           e.volume = volumeBurger;
+    });
+
+  });
+
