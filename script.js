@@ -64,27 +64,30 @@ const nombreAntho = document.querySelector("#nombreAntho");
 const nombreAyoub = document.querySelector("#nombreAyoub");
 const nombreVincent = document.querySelector("#nombreVincent");
 const costVincent = document.querySelector("#costVincent");
+const costSamuel = document.querySelector("#costSamuel");
+const nombreSamuel = document.querySelector("#nombreSamuel");
+const nombreYavuz = document.querySelector("#nombreYavuz");
+const costYavuz = document.querySelector("#costYavuz");
 const nombreChristopher = document.querySelector("#nombreChristopher");
 const costChristopher = document.querySelector("#costChristopher");
 const clickSound = document.querySelector("#clickSound");
 
-const costSamuel = document.querySelector("#costSamuel");
-const nombreSamuel = document.querySelector("#nombreSamuel");
-
 let score = 0;
 let bonusAnthoCost = 100;
-let bonusAyoubCost = 15;
+let bonusAyoubCost = 10;
 let bonusVincentCost = 1000;
-let bonusChristopherCost = 1;
+let bonusSamuelCost = 10000;
+let bonusYavuzCost = 100000;
+let bonusChristopherCost = 1000000;
 let antho = 1;
 let ayoub = 1;
 let vincent = 1;
+let samuel = 1;
+let yavuz = 1;
 let christopher = 1;
+
 let ayoubCheck = false;
 let christopherCheck = false;
-
-let bonusSamuelCost = 10;
-let samuel = 1;
 
 const playSound = () => {
   clickSound.currentTime = 0;
@@ -153,7 +156,10 @@ const basicClick = () => {
     score += vincent * 5 - 1;
   }
   if (samuel > 1) {
-    score += samuel * 100 - 1;
+    score += samuel * 10 - 1;
+  }
+  if (yavuz > 1) {
+    score += yavuz * 100 - 1;
   }
 };
 
@@ -163,7 +169,7 @@ const bonusAnthoPurchase = () => {
   if (score >= bonusAnthoCost) {
     score = score - bonusAnthoCost;
     antho = antho++;
-    bonusAnthoCost = Math.round(bonusAnthoCost * 1.5);
+    bonusAnthoCost = Math.round(bonusAnthoCost * 1.2);
     counter.innerHTML = score;
     costAntho.innerHTML = bonusAnthoCost;
     nombreAntho.innerHTML = antho++;
@@ -198,7 +204,7 @@ const bonusVincentPurchase = () => {
   if (score >= bonusVincentCost) {
     score = score - bonusVincentCost;
     vincent = vincent++;
-    bonusVincentCost = Math.round(bonusVincentCost * 1.5);
+    bonusVincentCost = Math.round(bonusVincentCost * 1.2);
     counter.innerHTML = score;
     costVincent.innerHTML = bonusVincentCost;
     nombreVincent.innerHTML = vincent++;
@@ -209,11 +215,42 @@ const bonusVincentPurchase = () => {
     }
   }
 };
+const bonusSamuelPurchase = () => {
+  if (score >= bonusSamuelCost) {
+    score = score - bonusSamuelCost;
+    samuel = samuel++;
+    bonusSamuelCost = Math.round(bonusSamuelCost * 1.2);
+    counter.innerHTML = score;
+    costSamuel.innerHTML = bonusSamuelCost;
+    nombreSamuel.innerHTML = samuel++;
+    updateCounterClass();
+    succesCheck();
+    if (samuel > 1) {
+      score += samuel * 10 - 1;
+    }
+  }
+};
+
+const bonusYavuzPurchase = () => {
+  if (score >= bonusYavuzCost) {
+    score = score - bonusYavuzCost;
+    yavuz = yavuz++;
+    bonusYavuzCost = Math.round(bonusYavuzCost * 1.2);
+    counter.innerHTML = score;
+    costYavuz.innerHTML = bonusYavuzCost;
+    nombreYavuz.innerHTML = yavuz++;
+    updateCounterClass();
+    succesCheck();
+    if (yavuz > 1) {
+      score += yavuz * 100 - 1;
+    }
+  }
+};
 const bonusChristopherPurchase = () => {
   if (score >= bonusChristopherCost) {
     score = score - bonusChristopherCost;
     christopher = christopher++;
-    bonusChristopherCost = Math.round(bonusChristopherCost * 1.5);
+    bonusChristopherCost = Math.round(bonusChristopherCost * 1.2);
     counter.innerHTML = score;
     costChristopher.innerHTML = bonusChristopherCost;
     nombreChristopher.innerHTML = christopher++;
@@ -227,21 +264,6 @@ const bonusChristopherPurchase = () => {
     }
   }
 };
-const bonusSamuelPurchase = () => {
-  if (score >= bonusSamuelCost) {
-    score = score - bonusSamuelCost;
-    samuel = samuel++;
-    bonusSamuelCost = Math.round(bonusSamuelCost * 1.5);
-    counter.innerHTML = score;
-    costSamuel.innerHTML = bonusSamuelCost;
-    nombreSamuel.innerHTML = samuel++;
-    updateCounterClass();
-    succesCheck();
-    if (samuel > 1) {
-      score += samuel * 100 - 1;
-    }
-  }
-};
 
 const bonusAntho = document
   .querySelector("#bonusAntho")
@@ -252,12 +274,15 @@ const bonusAyoub = document
 const bonusVincent = document
   .querySelector("#bonusVincent")
   .addEventListener("click", bonusVincentPurchase);
-const bonusChristopher = document
-  .querySelector("#bonusChristopher")
-  .addEventListener("click", bonusChristopherPurchase);
 const bonusSamuel = document
   .querySelector("#bonusSamuel")
   .addEventListener("click", bonusSamuelPurchase);
+const bonusYavuz = document
+  .querySelector("#bonusYavuz")
+  .addEventListener("click", bonusYavuzPurchase);
+const bonusChristopher = document
+  .querySelector("#bonusChristopher")
+  .addEventListener("click", bonusChristopherPurchase);
 
 /* Drag prevent */
 const noDrag = document.querySelector("body");
@@ -272,29 +297,50 @@ const succesReunion = document.querySelector("#succesReunion");
 const succesPoulpe = document.querySelector("#succesPoulpe");
 const succesDino = document.querySelector("#succesDino");
 const succesGoat = document.querySelector("#succesGoat");
+const succesPizzaBurger = document.querySelector("#succesPizzaBurger");
+const succesReunionBurger = document.querySelector("#succesReunionBurger");
+const succesPoulpeBurger = document.querySelector("#succesPoulpeBurger");
+const succesDinoBurger = document.querySelector("#succesDinoBurger");
+const succesGoatBurger = document.querySelector("#succesGoatBurger");
 
 const succesCheck = () => {
-  if (score >= 10000) {
+  if (score >= 1) {
     succesPizza.classList.remove("lock");
     succesPizza.classList.add("unlock");
+    succesPizzaBurger.classList.remove("lock");
+    succesPizzaBurger.classList.add("unlock");
   }
-  if (score >= 100000) {
+  if (score >= 10000) {
     succesReunion.classList.remove("lock");
     succesReunion.classList.add("unlock");
+    succesReunionBurger.classList.remove("lock");
+    succesReunionBurger.classList.add("unlock");
   }
-  if (score >= 1000000) {
+  if (score >= 100000) {
     succesPoulpe.classList.remove("lock");
     succesPoulpe.classList.add("unlock");
+    succesPoulpeBurger.classList.remove("lock");
+    succesPoulpeBurger.classList.add("unlock");
   }
   if (score >= 10000000) {
     succesDino.classList.remove("lock");
     succesDino.classList.add("unlock");
+    succesDinoBurger.classList.remove("lock");
+    succesDinoBurger.classList.add("unlock");
   }
-  if (score >= 100000000) {
+  if (score >= 10000000) {
     succesGoat.classList.remove("lock");
     succesGoat.classList.add("unlock");
+    succesGoatBurger.classList.remove("lock");
+    succesGoatBurger.classList.add("unlock");
   }
 };
+
+/* VOLUME  */
+
+const audio = document.querySelector("#music");
+audio.volume = 0.1;
+
 // SOUND SLIDE
 const slideSound = document.getElementById("volumeSound");
 slideSound.addEventListener("input", function () {
@@ -315,3 +361,53 @@ slideSoundBurger.addEventListener("input", function () {
     e.volume = volumeBurger;
   });
 });
+
+// Faire apparaître et disparaitre les images
+
+document.querySelector("#bonusAntho").addEventListener("click", function () {
+  const hiddenanthoimage = document.querySelector("#hiddenantho");
+  hiddenanthoimage.style.display = "inline";
+  setTimeout(function () {
+    hiddenanthoimage.style.display = "none";
+  }, 1000);
+});
+document.querySelector("#bonusAyoub").addEventListener("click", function () {
+  const hiddenayoubimage = document.querySelector("#hiddenayoub");
+  hiddenayoubimage.style.display = "inline";
+  setTimeout(function () {
+    hiddenayoubimage.style.display = "none";
+  }, 1000);
+});
+
+document.querySelector("#bonusVincent").addEventListener("click", function () {
+  const hiddenvincentimage = document.querySelector("#hiddenvincent");
+  hiddenvincentimage.style.display = "inline";
+  setTimeout(function () {
+    hiddenvincentimage.style.display = "none";
+  }, 1000);
+});
+
+document.querySelector("#bonusSamuel").addEventListener("click", function () {
+  const hiddensamuelimage = document.querySelector("#hiddensamuel");
+  hiddensamuelimage.style.display = "inline";
+  setTimeout(function () {
+    hiddensamuelimage.style.display = "none";
+  }, 1000);
+});
+document.querySelector("#bonusYavuz").addEventListener("click", function () {
+  const hiddenyavuzimage = document.querySelector("#hiddenyavuz");
+  hiddenyavuzimage.style.display = "inline";
+  setTimeout(function () {
+    hiddenyavuzimage.style.display = "none";
+  }, 1000);
+});
+
+document
+  .querySelector("#bonusChristopher")
+  .addEventListener("click", function () {
+    const hiddenchristopherimage = document.querySelector("#hiddenchristopher");
+    hiddenchristopherimage.style.display = "inline";
+    setTimeout(function () {
+      hiddenchristopherimage.style.display = "none";
+    }, 1000);
+  });

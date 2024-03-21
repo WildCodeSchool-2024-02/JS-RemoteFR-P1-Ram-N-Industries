@@ -9,12 +9,7 @@ body {
   margin: 0;
   font-family: "Oxanium", "Montserrat", sans-serif;
   color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  @media screen and (max-width: 400px) {
-  }
 }
 
 /* Burger Menu */
@@ -27,7 +22,7 @@ nav {
   display: none;
 }
 /* responsive pour le burger  */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1050px) {
   nav {
     display: initial;
     opacity: 95%;
@@ -38,6 +33,7 @@ nav {
     display: block;
     width: 60px;
     font-size: 30px;
+    margin: 1rem 0 0 0.5rem;
   }
 
   #icons:before {
@@ -60,6 +56,7 @@ nav {
   }
   nav > img {
     width: 150px;
+    margin: 0 30%;
   }
   nav li {
     padding: 3px 0;
@@ -78,9 +75,9 @@ header {
   justify-content: space-around;
   align-content: flex-start;
   align-items: flex-start;
-  margin: 0.5rem;
+  padding: 0.5rem;
   height: 4rem;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 1050px) {
     display: none;
   }
 }
@@ -95,16 +92,15 @@ button {
   border-radius: 1em;
   font-size: larger;
   color: white;
-  transition: all 0.5;
+  transition: all 0.5s;
   cursor: pointer;
   font-family: "Oxanium";
 }
 
 img.logoW {
-  margin-top: -5rem;
+  margin-top: -3rem;
   border-radius: 8em;
   height: 150px;
-  padding-block: none;
   cursor: pointer;
   align-items: flex-start;
 }
@@ -123,39 +119,56 @@ a {
 }
 .score > ul {
   padding-inline-start: 0;
-}
-
-.score>ul>#counter {
-  margin-right: 1.5rem;
+  margin: 0;
+  align-self: center;
 }
 
 li {
   list-style-type: none;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  align-self: center;
+}
+.score > ul > li#counter {
+  text-align: center;
 }
 
 h1,
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin: 0;
+  align-self: center;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 2rem;
+  }
 }
 
-li>img {
+li > img {
   background-image: linear-gradient(white, #f3156c 80%);
   border-radius: 50%;
 }
 
-li>img:active {
+li > img:active {
   background-color: #170202;
   box-shadow: 0 5px #666;
   transform: scale(1.1);
 }
 /* SECTION BONUS */
+main {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 1050px) {
+    height: initial;
+    display: initial;
+  }
+}
+
 section > a > img {
   width: 80px;
   height: auto;
   border-radius: 2em;
-  background-image: #1f1f1f;
   margin-bottom: 1.5rem;
 }
 
@@ -164,7 +177,7 @@ section > a > img {
   width: auto;
 }
 
-section>a {
+section > a {
   color: white;
   text-decoration: none;
   background-color: #4e515bb8;
@@ -172,7 +185,7 @@ section>a {
   display: grid;
   height: 8rem;
   width: 25rem;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 1050px) {
     width: 100%;
     padding: 0 2rem;
     height: initial;
@@ -185,12 +198,10 @@ section>a {
   grid-template-rows: 1fr 1fr;
   gap: 10px;
   column-gap: 5rem;
-
   align-self: center;
-  margin-left: 5rem;
   width: auto;
-  margin-right: 5rem;
-  @media screen and (max-width: 400px) {
+
+  @media screen and (max-width: 1050px) {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -205,9 +216,10 @@ section>a {
   font-size: smaller;
   width: auto;
   height: auto;
+  padding: 0 0.5rem;
 }
 
-.container>img {
+.container > img {
   justify-self: center;
   align-self: center;
 }
@@ -222,12 +234,14 @@ section>a {
 .allBonuses {
   display: flex;
   flex-direction: column;
-  margin-top: auto;
-  margin-bottom: 4em;
+  margin: auto 10rem 0 10rem;
   flex-wrap: wrap;
+  @media screen and (max-width: 1050px) {
+    margin: 0;
+  }
 }
 
-@media screen and (min-width:400px) {
+@media screen and (min-width: 1050px) {
   body {
     min-width: 90vh;
     height: 100%;
@@ -280,6 +294,7 @@ section>a {
   border-radius: 30px;
   transition: top;
   opacity: 95%;
+  text-align: center;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
@@ -298,14 +313,15 @@ section>a {
   border-radius: 30px;
   transition: top;
   opacity: 95%;
+  text-align: center;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-.popup-content-succes>.badges {
+.popup-content-succes > .badges {
   font-size: 30px;
 }
 
-.popup-content-succes>.badges>p {
+.popup-content-succes > .badges > p {
   margin-top: 5px;
   margin-bottom: 0;
   display: flex;
@@ -326,12 +342,14 @@ section>a {
   border-radius: 30px;
   transition: top;
   opacity: 95%;
+  text-align: center;
+  text-shadow: black 1px 1px, black -1px 1px, black -1px -1px, black 1px -1px;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
-.popup-content-team>.pictures>img {
+.popup-content-team > .pictures > img {
   border-radius: 30%;
-  width: 150px;
+  width: auto;
   height: 150px;
 }
 
@@ -350,6 +368,7 @@ section>a {
   border-radius: 30px;
   transition: top;
   opacity: 95%;
+  text-align: center;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
@@ -369,7 +388,7 @@ section>a {
   border-radius: 20px;
 }
 
-                              /*BURGER POPUPS*/
+/*BURGER POPUPS*/
 
 /* POP UP BURGER BASES */
 
@@ -394,11 +413,9 @@ section>a {
   display: block;
 }
 
-
 /* BURGER POP UP REGLE */
 
 .popup-content-rules-burger {
-
   opacity: 100%;
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
@@ -418,6 +435,7 @@ section>a {
   border-radius: 30px;
   transition: top;
   opacity: 95%;
+
   background-image: linear-gradient(#1f1f1f 50%, #f3156c);
 }
 
@@ -475,8 +493,7 @@ section>a {
 }
 
 /* BURGER BUTTON EXIT */
-@media screen and (max-width: 400px) {
-  
+@media screen and (max-width: 1050px) {
 }
 .popup-option-exit-burger,
 .popup-rules-exit-burger,
@@ -515,12 +532,13 @@ section>a {
 }
 
 .lock {
-  text-decoration: line-through;
   color: #666;
+  text-shadow: black 1px 1px, black -1px 1px, black -1px -1px, black 1px -1px;
 }
 
 .unlock {
   color: #3e8e41;
+  text-shadow: black 1px 1px, black -1px 1px, black -1px -1px, black 1px -1px;
 }
 
 @keyframes zoom {
@@ -537,4 +555,19 @@ section>a {
 
 .zoom {
   animation: zoom 0.5s ease infinite;
+}
+
+/* Images APPEARS */
+#hidden-container {
+  display: flex;
+  justify-content: center;
+}
+
+#hiddenantho,
+#hiddenayoub,
+#hiddenvincent,
+#hiddensamuel,
+#hiddenyavuz,
+#hiddenchristopher {
+  display: none;
 }
